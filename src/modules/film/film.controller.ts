@@ -1,0 +1,49 @@
+import { Controller, Get, Post, Body, Put, Param, Delete} from '@nestjs/common';
+import { Http2ServerRequest } from 'http2';
+import { ServicePull } from 'src/Services/Service.pull';
+import { Film } from './film.entity';
+
+@Controller('film')
+export class FilmController {
+  constructor(private readonly entityService: IEntityService<Film>,    
+              private readonly servicePull: IServicePull,  
+    ) {}
+
+  /*
+  @Post()
+  create(@Body() entity: Film) {
+    return this.entityService.create(entity);
+  }
+
+  @Get()
+  findAll() {
+    return this.entityService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.entityService.findOne(+id);
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() entity: Film ) {
+    return this.entityService.update(+id, entity);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.entityService.remove(+id);
+  }
+  */
+
+ @Get('pull')
+ pull() {  
+        this.servicePull.Pull<Film>('films',  
+        //[],[],
+         [ 'species' ,'starships','vehicles','people','planets'],
+         [ 'species' ,'starships','vehicles','characters','planets'],
+         this.entityService, 1);
+     
+ }
+
+}
