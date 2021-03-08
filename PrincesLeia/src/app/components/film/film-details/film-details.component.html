@@ -1,0 +1,67 @@
+<div>
+  <div *ngIf="entity.id" class="edit-form">
+    <h4>Film</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="entity.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="episode_id">episode_id</label>
+        <input
+          type="text"
+          class="form-control"
+          id="episode_id"
+          [(ngModel)]="entity.episode_id"
+          name="episode_id"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="episode_id">Diretor</label>
+        <input
+          type="text"
+          class="form-control"
+          id="director"
+          [(ngModel)]="entity.director"
+          name="director"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="producer">Produtor</label>
+        <input
+          type="text"
+          class="form-control"
+          id="producer"
+          [(ngModel)]="entity.producer"
+          name="producer"
+        />
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="delete()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="update()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!entity.id">
+    <br />
+    <p>indisponivel...</p>
+  </div>
+</div>

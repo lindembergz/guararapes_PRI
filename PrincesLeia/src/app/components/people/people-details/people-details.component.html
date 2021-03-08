@@ -1,0 +1,45 @@
+<div>
+  <div *ngIf="entity.id" class="edit-form">
+    <h4>Pessoa</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="entity.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="birth_year">birth_year</label>
+        <input
+          type="text"
+          class="form-control"
+          id="birth_year"
+          [(ngModel)]="entity.birth_year"
+          name="birth_year"
+        />
+      </div> 
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="delete()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="update()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!entity.id">
+    <br />
+    <p>indisponivel...</p>
+  </div>
+</div>

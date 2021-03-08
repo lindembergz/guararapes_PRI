@@ -1,0 +1,43 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by gender"
+        [(ngModel)]="gender"
+      />
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by population"
+        [(ngModel)]="population"
+      />
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4 class="h4">Personagens {{gender}} que vivem em planetas com população acima de {{population}}</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-action active"
+        *ngFor="let entity of entyties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntity(entity, i)"        
+      >
+        {{ entity.name }}
+        
+      </li>
+    </ul>
+  </div>  
+</div>

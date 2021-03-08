@@ -1,0 +1,87 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>StarShip List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-action active"
+        *ngFor="let entity of entyties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntity(entity, i)"
+      >
+        {{ entity.name }}
+        
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="entity">  
+
+      <h4>StarShip</h4>
+      <div>
+        <label><strong>Id:</strong></label> {{ entity.id }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ entity.name }}
+      </div>
+      <div>
+        <label><strong>model:</strong></label> {{ entity.model }}
+      </div>
+      <div>
+        <label><strong>starship_class:</strong></label> {{ entity.starship_class }}
+      </div>
+      <div>
+        <label><strong>manufacturer:</strong></label> {{ entity.manufacturer }}
+      </div>
+      <div>
+        <label><strong>cost_in_credits:</strong></label> {{ entity.cost_in_credits }}
+      </div>
+      <div>
+        <label><strong>length:</strong></label> {{ entity.length }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ entity.crew }}
+      </div>
+      <div>
+        <label><strong>passengers:</strong></label> {{ entity.passengers }}
+      </div>
+      <div>
+        <label><strong>max_atmosphering_speed:</strong></label> {{ entity.max_atmosphering_speed }}
+      </div>
+      <div>
+        <label><strong>hyperdrive_rating:</strong></label> {{ entity.hyperdrive_rating }}
+      </div>
+      <div>
+        <label><strong>MGLT:</strong></label> {{ entity.MGLT }}
+      </div>
+      <div>
+        <label><strong>cargo_capacity:</strong></label> {{ entity.cargo_capacity }}
+      </div>
+      <div>
+        <label><strong>consumables:</strong></label> {{ entity.consumables }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/starships/{{ entity.id }}">
+        Edit
+      </a>
+    </div>
+  </div>
+</div>

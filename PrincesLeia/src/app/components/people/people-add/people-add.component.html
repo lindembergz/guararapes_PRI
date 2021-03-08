@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="entity.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="birth_year">birth_year</label>
+        <input
+          class="form-control"
+          id="birth_year"
+          required
+          [(ngModel)]="entity.birth_year"
+          name="birth_year"
+        />
+      </div>
+
+      <button (click)="save()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Pessoa adicionada com sucesso!</h4>
+      <button class="btn btn-success" (click)="new()">Add</button>
+    </div>
+  </div>
+</div>

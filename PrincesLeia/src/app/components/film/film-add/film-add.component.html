@@ -1,0 +1,35 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="entity.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="episode_id">episode_id</label>
+        <input
+          class="form-control"
+          id="episode_id"
+          required
+          [(ngModel)]="entity.episode_id"
+          name="episode_id"
+        />
+      </div>
+
+      <button (click)="save()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Filme adicionado com sucesso!</h4>
+      <button class="btn btn-success" (click)="new()">Add</button>
+    </div>
+  </div>
+</div>

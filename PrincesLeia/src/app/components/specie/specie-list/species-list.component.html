@@ -1,0 +1,77 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Film List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-action active"
+        *ngFor="let entity of entyties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntity(entity, i)"
+      >
+        {{ entity.name }}
+        
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="entity">
+      
+
+      <h4>Specie</h4>
+      <div>
+        <label><strong>Id:</strong></label> {{ entity.id }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ entity.name }}
+      </div>
+      <div>
+        <label><strong>classification:</strong></label> {{ entity.classification }}
+      </div>
+      <div>
+        <label><strong>designation:</strong></label> {{ entity.designation }}
+      </div>
+      <div>
+        <label><strong>average_height:</strong></label> {{ entity.average_height }}
+      </div>
+      <div>
+        <label><strong>average_lifespan:</strong></label> {{ entity.average_lifespan }}
+      </div>
+      <div>
+        <label><strong>eye_colors:</strong></label> {{ entity.eye_colors }}
+      </div>
+      <div>
+        <label><strong>hair_colors:</strong></label> {{ entity.hair_colors }}
+      </div>
+      <div>
+        <label><strong>skin_colors:</strong></label> {{ entity.skin_colors }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ entity.language }}
+      </div>
+
+     <a class="badge badge-warning" routerLink="/species/{{ entity.id }}">
+        Edit
+      </a>
+    </div>
+
+  </div>
+</div>

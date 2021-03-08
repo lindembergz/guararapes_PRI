@@ -1,0 +1,75 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="name"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchName()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Planet List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-action active"
+        *ngFor="let entity of entyties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntity(entity, i)"
+      >
+        {{ entity.name }}
+        
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="entity">     
+
+      <h4>Planeta</h4>
+      <div>
+        <label><strong>Id:</strong></label> {{ entity.id }}
+      </div>
+      <div>
+        <label><strong>Name:</strong></label> {{ entity.name }}
+      </div>
+      <div>
+        <label><strong>diameter:</strong></label> {{ entity.diameter }}
+      </div>
+      <div>
+        <label><strong>rotation_period:</strong></label> {{ entity.rotation_period }}
+      </div>
+      <div>
+        <label><strong>orbital_period:</strong></label> {{ entity.orbital_period }}
+      </div>
+      <div>
+        <label><strong>gravity:</strong></label> {{ entity.gravity }}
+      </div>
+      <div>
+        <label><strong>population:</strong></label> {{ entity.population }}
+      </div>
+      <div>
+        <label><strong>climate:</strong></label> {{ entity.climate }}
+      </div>
+      <div>
+        <label><strong>terrain:</strong></label> {{ entity.terrain }}
+      </div>
+      <div>
+        <label><strong>surface_water:</strong></label> {{ entity.surface_water }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/planets/{{ entity.id }}">
+        Edit
+      </a>
+    </div>
+  </div>
+</div>
