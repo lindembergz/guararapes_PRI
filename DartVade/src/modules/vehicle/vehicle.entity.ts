@@ -15,7 +15,7 @@ import { People } from '../people/people.entity';
 @Entity('vehicles')
 export class Vehicle extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    Id: number;
+    id: bigint;
     @Column({type: 'varchar',unique: true,length:200,nullable:false})
     name : string; // -- The name of this vehicle. The common name, such as "Sand Crawler" or "Speeder bike".
     @Column({type: 'varchar',length:200,nullable:false})

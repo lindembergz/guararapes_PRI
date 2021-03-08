@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
-//import { ServicePull } from 'src/Services/Service.pull';
+import { ServicePull } from 'src/Services/Service.pull';
 import { People } from './people.entity';
-//import { PeopleService } from './people.service';
+import { PeopleService } from './people.service';
 
 @Controller('People')
 export class PeopleController {
-  constructor(private readonly entityService: IEntityService<People>,
-    private readonly servicePull: IServicePull, 
+  constructor(private readonly entityService: PeopleService,
+    private readonly servicePull: ServicePull, 
     ) {}
 
 
   @Get('pull')
   pull() {  
-      this.servicePull.Pull<People>('people', //[],[],                           
-                                     ['species','starships','vehicles','films' ],
-                                     ['species','starships','vehicles','films' ],
+    return  this.servicePull.Pull<People>('people', [],[],                           
+                                     //['species','starships','vehicles','films' ],
+                                     //['species','starships','vehicles','films' ],
                                      this.entityService, 1 ); 
   }
 

@@ -18,7 +18,7 @@ import { Vehicle } from '../vehicle/vehicle.entity';
 @Entity('people')
 export class People extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    Id: number;
+    id: bigint;
     @Column({type: 'varchar',unique: true,length:200,nullable:false})
     name :string; //-- The name of this person.
     @Column({type: 'varchar',length:20,nullable:true})

@@ -15,7 +15,7 @@ import { People } from '../people/people.entity';
 @Entity('starships')
 export class Starship extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    Id: number;
+    id: bigint;
     @Column({type: 'varchar',unique: true,length:200,nullable:false})
     name :string; // The name of this starship. The common name, such as "Death Star".
     @Column({type: 'varchar',length:200,nullable:true})

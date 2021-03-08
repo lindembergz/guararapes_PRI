@@ -1,19 +1,19 @@
 import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
-//import { ServicePull } from 'src/Services/Service.pull';
+import { ServicePull } from 'src/Services/Service.pull';
 import { Starship } from './starship.entity';
-//import { StarshipService } from './starship.service';
+import { StarshipService } from './starship.service';
 
 @Controller('starship')
 export class StarshipController {
-  constructor(private readonly entityService: IEntityService<Starship>,
-     private readonly servicePull: IServicePull, 
+  constructor(private readonly entityService: StarshipService,
+     private readonly servicePull: ServicePull, 
     ) {}
 
   @Get('pull')
   pull() {  
-      this.servicePull.Pull<Starship>('starships', //[],[],
-                                      ['people','films'],
-                                      ['pilots','films'],
+    return  this.servicePull.Pull<Starship>('starships', [],[],
+                                      //['people','films'],
+                                      //['pilots','films'],
                                       this.entityService, 1); 
   }
   /*

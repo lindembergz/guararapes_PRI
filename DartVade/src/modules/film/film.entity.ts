@@ -15,34 +15,16 @@ import { Specie } from '../specie/specie.entity';
 import { Starship } from '../starship/starship.entity';
 import { Vehicle } from '../vehicle/vehicle.entity';
 
-/*
-@Entity('producer')
-export class Producer extends BaseEntity {
-    @PrimaryGeneratedColumn('increment')
-    Id: number;
-    @Column({type: 'varchar',unique: true,length:200,nullable:false})
-    title :string;//The title of this film
-
-}
-
-@Entity('director')
-export class Director extends BaseEntity {
-    @PrimaryGeneratedColumn('increment')
-    Id: number;
-    @Column({type: 'varchar',unique: true,length:200,nullable:false})
-    title :string;//The title of this film
-
-}*/
 
 
 @Entity('films')
 export class Film extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    Id: number;
+    id: bigint;
     @Column({type: 'varchar',unique: true,length:200,nullable:false})
     title :string;//The title of this film
-    @Column({type: 'real'}) 
-    episode_id :number// The episode number of this film.
+    @Column({type: 'int'}) 
+    episode_id :bigint;// The episode number of this film.
     @Column({type: 'varchar',length:1000,nullable:true})
     opening_crawl : string;// The opening paragraphs at the beginning of this film.
     @Column({type: 'varchar',length:200,nullable:true})
@@ -54,19 +36,15 @@ export class Film extends BaseEntity {
     @ManyToMany(() => Specie)
     @JoinTable()
     species: Specie[];// An array of species resource URLs that are in this film.
-
     @ManyToMany(() => Starship)
     @JoinTable()
     starships: Starship[];// An array of starship resource URLs that are in this film.
-
     @ManyToMany(() => Vehicle)
     @JoinTable()
     vehicles: Vehicle[];// An array of vehicle resource URLs that are in this film.
-
     @ManyToMany(() => People)
     @JoinTable()
     people: People[];// An array of people resource URLs that are in this film.
-
     @ManyToMany(() => Planet)
     @JoinTable()
     planets: Planet[];// An array of planet resource URLs that are in this film.

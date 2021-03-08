@@ -8,6 +8,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using LukeSkywalker.Database;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using LukeSkywalker.Domain.Interfaces.Services;
+using LukeSkywalker.Services;
+using LukeSkywalker.Models;
 
 
 
@@ -28,38 +31,40 @@ namespace LukeSkywalker
         {
             
 
-            //Fonte: https://docs.microsoft.com/pt-br/aspnet/core/security/cors?view=aspnetcore-5.0#attr
-           /* services.AddCors(options =>
-            {       
-                options.AddPolicy("AnotherPolicy",
-                    builder =>
-                    {
-                        builder.WithOrigins("http://localhost:4200")
-                                            .AllowAnyOrigin()
-                                            .AllowAnyMethod()
-                                            .AllowAnyHeader()                                            
-                                            ;
-                    });
-            });*/
-
-
-            services.AddControllers();
-
             //services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContextPool<ApplicationDBContext>(
-               dbContextOptions => dbContextOptions
-               //.UseMySql( "server=mysqlservidor.mysql.database.azure.com;port=3306;database=starwars;uid=servidor@mysqlservidor;password=982666@Lindemberg",
-               .UseMySql("server=localhost;port=3306;database=swapi;uid=root;password=1234",
-
-                    new MySqlServerVersion(new Version(8, 0, 21)), 
+            /*services.AddDbContextFactory<ApplicationDBContext>(
+                dbContextOptions => dbContextOptions.UseMySql("server=localhost;port=3306;database=swapi;uid=root;password=1234",
+                    new MySqlServerVersion(new Version(8, 0, 21)),
                        mySqlOptions => mySqlOptions
                            .CharSetBehavior(CharSetBehavior.NeverAppend))
                    .EnableSensitiveDataLogging()
                    .EnableDetailedErrors()
-           );
+                );*/
+
+            services.AddControllers();
+
+              services.AddDbContextPool<ApplicationDBContext>(
+                 dbContextOptions => dbContextOptions
+                 //.UseMySql( "server=mysqlservidor.mysql.database.azure.com;port=3306;database=starwars;uid=servidor@mysqlservidor;password=982666@Lindemberg",
+                 .UseMySql("server=localhost;port=3306;database=swapi;uid=root;password=1234",
+
+                      new MySqlServerVersion(new Version(8, 0, 21)), 
+                         mySqlOptions => mySqlOptions
+                             .CharSetBehavior(CharSetBehavior.NeverAppend))
+                     .EnableSensitiveDataLogging()
+                     .EnableDetailedErrors()
+             );
 
             services.AddMvc();
+            //AddSingleton
+            //AddScoped
+            services.AddTransient<IServiceEntity<Films>, FilmService>();
+            services.AddTransient<IServiceEntity<People>, PeopleService>();
+            services.AddTransient<IServiceEntity<Species>, SpecieService>();
+            services.AddTransient<IServiceEntity<Planets>, PlanetService>();
+            services.AddTransient<IServiceEntity<Vehicles>, VehicleService>();
+            services.AddTransient<IServiceEntity<Starships>, StarShipService>();
 
             services.AddSwaggerGen(c =>
             {
@@ -76,7 +81,7 @@ namespace LukeSkywalker
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LukeSkywalker v1"));
             }
-
+            //Fonte: https://docs.microsoft.com/pt-br/aspnet/core/security/cors?view=aspnetcore-5.0#attr
             app.UseCors(x => x
             .AllowAnyOrigin()
             .AllowAnyMethod()

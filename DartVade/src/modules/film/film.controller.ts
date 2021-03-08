@@ -2,11 +2,13 @@ import { Controller, Get, Post, Body, Put, Param, Delete} from '@nestjs/common';
 import { Http2ServerRequest } from 'http2';
 import { ServicePull } from 'src/Services/Service.pull';
 import { Film } from './film.entity';
+import { FilmService } from './film.service';
+
 
 @Controller('film')
 export class FilmController {
-  constructor(private readonly entityService: IEntityService<Film>,    
-              private readonly servicePull: IServicePull,  
+  constructor(private readonly entityService: FilmService,    
+              private readonly servicePull: ServicePull,  
     ) {}
 
   /*
@@ -38,12 +40,12 @@ export class FilmController {
 
  @Get('pull')
  pull() {  
-        this.servicePull.Pull<Film>('films',  
-        //[],[],
-         [ 'species' ,'starships','vehicles','people','planets'],
-         [ 'species' ,'starships','vehicles','characters','planets'],
+   return  this.servicePull.Pull<Film>('films',  
+          [],[],
+         //[ 'species' ,'starships','vehicles','people','planets'],
+         //[ 'species' ,'starships','vehicles','characters','planets'],
          this.entityService, 1);
      
  }
-
+ 
 }

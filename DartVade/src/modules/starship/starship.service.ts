@@ -13,6 +13,18 @@ export class StarshipService {
     {      
     }
 
+    async   ExecRelationCommand(tableName: string , idsRelation: string   )
+    {
+      await this._entityRepository.
+      createQueryBuilder().
+      insert().
+      into(tableName).
+      //values([{filmsId: idMaster , speciesId: idDetail}]).
+      values([ JSON.parse( idsRelation ) ]).
+      execute();
+    }
+
+    
   async create(entity: Starship):Promise<Starship>  {
     const saveEntity = await this._entityRepository.save(entity);
         return saveEntity;
@@ -38,7 +50,7 @@ export class StarshipService {
       return entity;
   }
 
-  async  findOneIdByUrl(_url: string): Promise<number>
+  async  findOneIdByUrl(_url: string): Promise<bigint>
   {
     if(!_url)
     {
@@ -49,7 +61,7 @@ export class StarshipService {
     {
         throw new BadRequestException('Id nao existe!');
     }
-    return entity.Id;
+    return entity.id;
   }
 
   async update(id: number, entity: Starship):Promise<void> {
@@ -66,15 +78,7 @@ export class StarshipService {
         }
         await this._entityRepository.delete(id);
   }
+  
 
-  async   ExecRelationCommand(tableName: string , idsRelation: string   )
-  {
-    await this._entityRepository.
-    createQueryBuilder().
-    insert().
-    into(tableName).
-    //values([{filmsId: idMaster , speciesId: idDetail}]).
-    values([ JSON.parse( idsRelation ) ]).
-    execute();
-  }
+  
 }

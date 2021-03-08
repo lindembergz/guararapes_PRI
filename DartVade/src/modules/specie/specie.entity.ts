@@ -16,7 +16,7 @@ import { People } from '../people/people.entity';
 @Entity('species')
 export class Specie extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
-    Id: number;
+    id: bigint;
     @Column({type: 'varchar',unique: true,length:200,nullable:false})
     name : string; // -- The name of this species.
     @Column({type: 'varchar', length:200,nullable:true})

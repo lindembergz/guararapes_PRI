@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infra\Repository\NovaPasta\**" />
+    <Compile Remove="App\ViewModels\NovaPasta\**" />
+    <Content Remove="Infra\Repository\NovaPasta\**" />
+    <Content Remove="App\ViewModels\NovaPasta\**" />
+    <EmbeddedResource Remove="Infra\Repository\NovaPasta\**" />
+    <EmbeddedResource Remove="App\ViewModels\NovaPasta\**" />
+    <None Remove="Infra\Repository\NovaPasta\**" />
+    <None Remove="App\ViewModels\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
 
@@ -22,6 +33,10 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
 
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\InterfaceRepository\" />
   </ItemGroup>
 
 </Project>

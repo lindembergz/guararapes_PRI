@@ -13,6 +13,19 @@ export class VehicleService {
     {      
     }
 
+    async ExecRelationCommand(tableName: string , idsRelation: string  )
+    {
+      //console.log( tableName + "   "+ idsRelation ); 
+      await this._entityRepository.
+      createQueryBuilder().
+      insert().
+      into(tableName).
+      //values([{filmsId: idMaster , speciesid: idDetail}]).
+      values([ JSON.parse( idsRelation ) ]).
+      execute();
+    }
+  
+    
   async create(entity: Vehicle):Promise<Vehicle>  {
     const saveEntity = await this._entityRepository.save(entity);
         return saveEntity;
@@ -38,7 +51,7 @@ export class VehicleService {
       return entity;
   }
 
-  async  findOneIdByUrl(_url: string): Promise<number>
+  async  findOneIdByUrl(_url: string): Promise<bigint>
   {
     if(!_url)
     {
@@ -49,7 +62,7 @@ export class VehicleService {
     {
         throw new BadRequestException('Id nao existe!');
     }
-    return entity.Id;
+    return entity.id;
   }
 
   async update(id: number, entity: Vehicle):Promise<void> {
@@ -66,17 +79,7 @@ export class VehicleService {
         }
         await this._entityRepository.delete(id);
   }
+  
 
-  async ExecRelationCommand(tableName: string , idsRelation: string  )
-  {
-    //console.log( tableName + "   "+ idsRelation ); 
-    await this._entityRepository.
-    createQueryBuilder().
-    insert().
-    into(tableName).
-    //values([{filmsId: idMaster , speciesId: idDetail}]).
-    values([ JSON.parse( idsRelation ) ]).
-    execute();
-  }
-
+ 
 }

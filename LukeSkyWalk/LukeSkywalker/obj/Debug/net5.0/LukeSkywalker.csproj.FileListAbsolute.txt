@@ -52,4 +52,3 @@ C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\ne
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\net5.0\ref\LukeSkywalker.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\net5.0\LukeSkywalker.pdb
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\net5.0\LukeSkywalker.genruntimeconfig.cache
-C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\net5.0\LukeSkywalker.csprojAssemblyReference.cache

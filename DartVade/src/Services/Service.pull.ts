@@ -4,13 +4,6 @@ import { getManager, getConnection  } from 'typeorm';
 @Injectable()
 export class ServicePull implements IServicePull
 {    
-    filmsURL : string  = "https://swapi.dev/api/films/";
-    peopleURL: string  = "https://swapi.dev/api/people/";
-    planetsURL : string=  "https://swapi.dev/api/planets/";
-    speciesURL : string=  "https://swapi.dev/api/species/";
-    starshipsURL: string=  "https://swapi.dev/api/starships/";
-    vehiclesURL : string=  "https://swapi.dev/api/vehicles/";
-
    jsontoArray(json)
   {
       var result = [];
@@ -42,16 +35,24 @@ export class ServicePull implements IServicePull
                                     {    const entityManager = getManager();
                                         entityManager.query(`select Id from ${detail} where url = '${urlDetail}'`).
                                         then( (idDetail)=>
-                                         { _service.ExecRelationCommand(`${_entity}_${detail}_${detail}`,
-                                          `{"${_entity}Id":${idHead.toString()} ,"${detail}Id":${idDetail[0].Id.toString()}}` );}  
+                                                { _service.ExecRelationCommand(`${_entity}_${detail}_${detail}`,
+                                                `{"${_entity}Id":${idHead.toString()} ,"${detail}Id":${idDetail[0].Id.toString()}}` );
+                                                }  
                                             );                                                                       
                                     });                                                                                
                                 });              
                   });                 
-              }   
+               }   
           });
+
           if (this.jsontoArray(result)[1] != null)
-          {  this.Pull<T>( _entity , _relations , _atributties , _service, _pageIndex + 1 ); }
+          {  this.Pull<T>( _entity , 
+                           _relations , 
+                           _atributties , 
+                           _service, 
+                           _pageIndex + 1 ); 
+          }
+
       }).catch( (err) => { console.log(err); });   
   }
 

@@ -1,12 +1,21 @@
 {
     "type": "mysql",
+    "_host": "mysqlservidor.mysql.database.azure.com",
+    "_username": "servidor@mysqlservidor",
+    "_password": "982666@Lindemberg",
+    "_database": "starwars",
+
     "host": "localhost",
     "username": "root",
     "password": "1234",
     "database": "swapi",
+
     "port":3306,
     "entities": ["src/modules/**/*entity{.ts,.js}"], 
     "migrations": ["src/database/migrations/*{.ts,.js}"],
     "synchronize": true,
     "cli":{ "migrationsDir": "src/database/migrations" }
 }
+
+
+
