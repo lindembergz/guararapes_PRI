@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj": {}
+    "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj": {}
   },
   "projects": {
-    "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj": {
+    "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
+        "projectUniqueName": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
         "projectName": "LukeSkywalker",
-        "projectPath": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
+        "projectPath": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
         "packagesPath": "C:\\Users\\300068543\\.nuget\\packages\\",
-        "outputPath": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\obj\\",
+        "outputPath": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\300068543\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.2, )"

@@ -37,7 +37,7 @@ namespace LukeSkywalker.Services
         {
             return database.
                 Films.
-                Include(p => p.FilmsPeoplePeople).AsNoTracking().ToList();
+                Include("FilmsPeoplePeople.People").AsNoTracking().ToList();
                 
         }
 

@@ -1,0 +1,11 @@
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.AssemblyInfoInputs.cache
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.AssemblyInfo.cs
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.csproj.CoreCompileInputs.cache
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\bin\Debug\net5.0\PrimeService.deps.json
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\bin\Debug\net5.0\PrimeService.dll
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\bin\Debug\net5.0\ref\PrimeService.dll
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\bin\Debug\net5.0\PrimeService.pdb
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.dll
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\ref\PrimeService.dll
+C:\Lindemberg\PRI\Testes\XUnitTestProject1\unit-testing-using-dotnet-test\PrimeService\obj\Debug\net5.0\PrimeService.pdb
