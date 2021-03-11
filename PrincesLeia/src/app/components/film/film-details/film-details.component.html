@@ -1,5 +1,6 @@
 <div>
-  <div *ngIf="entity.id" class="edit-form">
+  <button type="button" class="btn btn-link"  routerLink="/films">Back</button>
+  <div *ngIf="entity.id" class="edit-form">    
     <h4>Film</h4>
     <form>
       <div class="form-group">
@@ -13,18 +14,18 @@
         />
       </div>
       <div class="form-group">
-        <label for="episode_id">episode_id</label>
+        <label for="episodeId">episodeId</label>
         <input
           type="text"
           class="form-control"
-          id="episode_id"
-          [(ngModel)]="entity.episode_id"
-          name="episode_id"
+          id="episodeId"
+          [(ngModel)]="entity.episodeId"
+          name="episodeId"
         />
       </div>
 
       <div class="form-group">
-        <label for="episode_id">Diretor</label>
+        <label for="director">director</label>
         <input
           type="text"
           class="form-control"
@@ -35,7 +36,7 @@
       </div>
 
       <div class="form-group">
-        <label for="producer">Produtor</label>
+        <label for="producer">producer</label>
         <input
           type="text"
           class="form-control"
@@ -44,6 +45,19 @@
           name="producer"
         />
       </div>
+
+      <div class="form-group">
+        <label for="openingCrawl">openingCrawl</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="openingCrawl"
+          [(ngModel)]="entity.openingCrawl"
+          name="openingCrawl"
+        ></textarea>
+      </div>
+
+
     </form>
 
     <button class="badge badge-danger mr-2" (click)="delete()">

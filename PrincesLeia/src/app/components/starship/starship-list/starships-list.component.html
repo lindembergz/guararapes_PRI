@@ -16,6 +16,10 @@
           Search
         </button>
       </div>
+
+      <div class="input-group-append">
+        <a href="/addStarship" >Add</a>          
+      </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -26,6 +30,7 @@
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveEntity(entity, i)"
+        routerLink="/starships/{{ entity.id }}"
       >
         {{ entity.name }}
         
@@ -46,13 +51,13 @@
         <label><strong>model:</strong></label> {{ entity.model }}
       </div>
       <div>
-        <label><strong>starship_class:</strong></label> {{ entity.starship_class }}
+        <label><strong>starship_class:</strong></label> {{ entity.starshipClass }}
       </div>
       <div>
         <label><strong>manufacturer:</strong></label> {{ entity.manufacturer }}
       </div>
       <div>
-        <label><strong>cost_in_credits:</strong></label> {{ entity.cost_in_credits }}
+        <label><strong>cost_in_credits:</strong></label> {{ entity.costInCredits }}
       </div>
       <div>
         <label><strong>length:</strong></label> {{ entity.length }}
@@ -64,24 +69,21 @@
         <label><strong>passengers:</strong></label> {{ entity.passengers }}
       </div>
       <div>
-        <label><strong>max_atmosphering_speed:</strong></label> {{ entity.max_atmosphering_speed }}
+        <label><strong>max_atmosphering_speed:</strong></label> {{ entity.maxAtmospheringSpeed }}
       </div>
       <div>
-        <label><strong>hyperdrive_rating:</strong></label> {{ entity.hyperdrive_rating }}
+        <label><strong>hyperdrive_rating:</strong></label> {{ entity.hyperdriveRating }}
       </div>
       <div>
         <label><strong>MGLT:</strong></label> {{ entity.MGLT }}
       </div>
       <div>
-        <label><strong>cargo_capacity:</strong></label> {{ entity.cargo_capacity }}
+        <label><strong>cargo_capacity:</strong></label> {{ entity.cargoCapacity }}
       </div>
       <div>
         <label><strong>consumables:</strong></label> {{ entity.consumables }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/starships/{{ entity.id }}">
-        Edit
-      </a>
     </div>
   </div>
 </div>

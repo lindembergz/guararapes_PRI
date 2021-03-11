@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EIiGC6xfnRePb7bcbuoroNcbyo/am7cDwNgwmMGCrAmXIA75Mou9o7CtzJ2ca2Ca19w/TvpcXY7qqgClHnNa2w==",
+  "dgSpecHash": "YjUjnXvZ4MjEo3dREoNB5XlUme5gtOlEx+TB2OpAYuV8+yCuO9lE9Kgi7hb3xc2zIlg7SfYuCdWCoYsdI4K52A==",
   "success": true,
-  "projectFilePath": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
+  "projectFilePath": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\300068543\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\300068543\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",

@@ -13,11 +13,11 @@ export class AddSpecieComponent implements OnInit {
     name: '',
     classification :'', 
     designation : '', 
-    average_height : '',
-    average_lifespan : '',
-    eye_colors : '',
-    hair_colors : '',
-    skin_colors : '',
+    averageHeight : '',
+    averageLifespan : '',
+    eyeColors : '',
+    hairColors : '',
+    skinColors : '',
     language: '',
     homeworld : '',
     people:  [],
@@ -37,12 +37,7 @@ export class AddSpecieComponent implements OnInit {
   }
 
   save(): void {
-    const data = {
-       name: this.entity.name,
-  
-    };
-
-    this._Service.create(data)
+    this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -59,11 +54,11 @@ export class AddSpecieComponent implements OnInit {
       name: '',
       classification :'', 
       designation : '', 
-      average_height : '',
-      average_lifespan : '',
-      eye_colors : '',
-      hair_colors : '',
-      skin_colors : '',
+      averageHeight : '',
+      averageLifespan : '',
+      eyeColors : '',
+      hairColors : '',
+      skinColors : '',
       language: '',
       homeworld : '',
       people:  [],

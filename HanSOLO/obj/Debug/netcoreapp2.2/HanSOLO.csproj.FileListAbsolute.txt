@@ -1,0 +1,17 @@
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.AssemblyInfoInputs.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.AssemblyInfo.cs
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.csproj.CoreCompileInputs.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.RazorAssemblyInfo.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.RazorAssemblyInfo.cs
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\HanSOLO.deps.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\HanSOLO.runtimeconfig.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\HanSOLO.runtimeconfig.dev.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\HanSOLO.dll
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\HanSOLO.pdb
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.RazorTargetAssemblyInfo.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.dll
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.pdb
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.genruntimeconfig.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\HanSOLO.csprojAssemblyReference.cache

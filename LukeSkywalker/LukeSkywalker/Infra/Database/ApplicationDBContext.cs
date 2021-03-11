@@ -4,8 +4,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using LukeSkywalker.Models;
-using LukeSkywalker.viewmodels;
+using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Service.DTO;
 
 namespace LukeSkywalker.Database
 {
@@ -16,31 +16,35 @@ namespace LukeSkywalker.Database
         }
 
         public virtual DbSet<Films> Films { get; set; }
-        public virtual DbSet<FilmsPeoplePeople> FilmsPeoplePeople { get; set; }
-        public virtual DbSet<FilmsPlanetsPlanets> FilmsPlanetsPlanets { get; set; }
-        public virtual DbSet<FilmsSpeciesSpecies> FilmsSpeciesSpecies { get; set; }
-        public virtual DbSet<FilmsStarshipsStarships> FilmsStarshipsStarships { get; set; }
-        public virtual DbSet<FilmsVehiclesVehicles> FilmsVehiclesVehicles { get; set; }
         public virtual DbSet<People> People { get; set; }
-        public virtual DbSet<PeopleFilmsFilms> PeopleFilmsFilms { get; set; }
-        public virtual DbSet<PeopleSpeciesSpecies> PeopleSpeciesSpecies { get; set; }
-        public virtual DbSet<PeopleStarshipsStarships> PeopleStarshipsStarships { get; set; }
-        public virtual DbSet<PeopleVehiclesVehicles> PeopleVehiclesVehicles { get; set; }
         public virtual DbSet<Planets> Planets { get; set; }
-        public virtual DbSet<PlanetsFilmsFilms> PlanetsFilmsFilms { get; set; }
-        public virtual DbSet<PlanetsPeoplePeople> PlanetsPeoplePeople { get; set; }
         public virtual DbSet<Species> Species { get; set; }
-        public virtual DbSet<SpeciesFilmsFilms> SpeciesFilmsFilms { get; set; }
-        public virtual DbSet<SpeciesPeoplePeople> SpeciesPeoplePeople { get; set; }
         public virtual DbSet<Starships> Starships { get; set; }
-        public virtual DbSet<StarshipsFilmsFilms> StarshipsFilmsFilms { get; set; }
-        public virtual DbSet<StarshipsPeoplePeople> StarshipsPeoplePeople { get; set; }
         public virtual DbSet<Vehicles> Vehicles { get; set; }
-        public virtual DbSet<VehiclesFilmsFilms> VehiclesFilmsFilms { get; set; }
-        public virtual DbSet<VehiclesPeoplePeople> VehiclesPeoplePeople { get; set; }
-        public virtual DbSet<vwPeoplePlanets>  vwPeoplePlanets { get; set; }
+        public virtual DbSet<DTOPeople> DTOPeople { get; set; }
+        public virtual DbSet<FilmsPeoplePeople> FilmsPeoplePeople { get; set; }
+        public virtual DbSet<PeopleFilmsFilms> PeopleFilmsFilms { get; set; }
 
+        /* 
+         public virtual DbSet<FilmsPlanetsPlanets> FilmsPlanetsPlanets { get; set; }
+         public virtual DbSet<FilmsSpeciesSpecies> FilmsSpeciesSpecies { get; set; }
+         public virtual DbSet<FilmsStarshipsStarships> FilmsStarshipsStarships { get; set; }
+         public virtual DbSet<FilmsVehiclesVehicles> FilmsVehiclesVehicles { get; set; }        
         
+         public virtual DbSet<PeopleSpeciesSpecies> PeopleSpeciesSpecies { get; set; }
+         public virtual DbSet<PeopleStarshipsStarships> PeopleStarshipsStarships { get; set; }
+         public virtual DbSet<PeopleVehiclesVehicles> PeopleVehiclesVehicles { get; set; }       
+         public virtual DbSet<PlanetsFilmsFilms> PlanetsFilmsFilms { get; set; }
+         public virtual DbSet<PlanetsPeoplePeople> PlanetsPeoplePeople { get; set; }       
+         public virtual DbSet<SpeciesFilmsFilms> SpeciesFilmsFilms { get; set; }
+         public virtual DbSet<SpeciesPeoplePeople> SpeciesPeoplePeople { get; set; }
+         public virtual DbSet<StarshipsFilmsFilms> StarshipsFilmsFilms { get; set; }
+         public virtual DbSet<StarshipsPeoplePeople> StarshipsPeoplePeople { get; set; }       
+         public virtual DbSet<VehiclesFilmsFilms> VehiclesFilmsFilms { get; set; }
+         public virtual DbSet<VehiclesPeoplePeople> VehiclesPeoplePeople { get; set; }
+        */
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -96,7 +100,7 @@ namespace LukeSkywalker.Database
                     .HasConstraintName("FK_da2f86aa6b63734b057c04f41c5");
             });
 
-            modelBuilder.Entity<FilmsPlanetsPlanets>(entity =>
+          modelBuilder.Entity<FilmsPlanetsPlanets>(entity =>
             {
                 entity.HasKey(e => new { e.FilmsId, e.PlanetsId })
                     .HasName("PRIMARY")

@@ -12,16 +12,16 @@ export class AddStarShipComponent implements OnInit {
     id: 0,
     name :'', 
     model:'', 
-    starship_class :'',
+    starshipClass :'',
     manufacturer :'',
-    cost_in_credits :'',
+    costInCredits :'',
     length :'',
     crew :'',
     passengers :'',
-    max_atmosphering_speed :'',
-    hyperdrive_rating :'',
+    maxAtmospheringSpeed :'',
+    hyperdriveRating :'',
     MGLT :'', 
-    cargo_capacity :'',
+    cargoCapacity :'',
     consumables :'',
     people: [],
     films: [],
@@ -38,13 +38,8 @@ export class AddStarShipComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(): void {
-    const data = {
-       name: this.entity.name,
-     
-    };
-
-    this._Service.create(data)
+  save(): void { 
+    this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -60,16 +55,16 @@ export class AddStarShipComponent implements OnInit {
     this.entity = {
       name :'', 
       model:'', 
-      starship_class :'',
+      starshipClass :'',
       manufacturer :'',
-      cost_in_credits :'',
+      costInCredits :'',
       length :'',
       crew :'',
       passengers :'',
-      max_atmosphering_speed :'',
-      hyperdrive_rating :'',
+      maxAtmospheringSpeed :'',
+      hyperdriveRating :'',
       MGLT :'', 
-      cargo_capacity :'',
+      cargoCapacity :'',
       consumables :'',
       people: [],
       films: [],

@@ -13,13 +13,13 @@ export class PlanetDetailsComponent implements OnInit {
     id: 0,
     name : '',
     diameter: '',   
-    rotation_period: '',
-    orbital_period : '',
+    rotationPeriod: '',
+    orbitalPeriod : '',
     gravity : '',
     population: '',
     climate: '',
     terrain : '',
-    surface_water : '',
+    surfaceWater : '',
     people:  [],
     films:  [],
     url : '',
@@ -50,27 +50,7 @@ export class PlanetDetailsComponent implements OnInit {
           console.log(error);
         });
   }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      id: this.entity.id,
-      title: this.entity.name,
-    };
-
-    this.message = '';
-
-    this._Service.update(this.entity.id, data)
-      .subscribe(
-        response => {
-
-          console.log(response);
-          this.message = response.message ? response.message : 'alterado com sucesso!';
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
+  
   update(): void {
     this.message = '';
 

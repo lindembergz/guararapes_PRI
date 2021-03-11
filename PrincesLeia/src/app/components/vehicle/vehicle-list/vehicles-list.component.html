@@ -16,6 +16,10 @@
           Search
         </button>
       </div>
+
+      <div class="input-group-append">
+        <a href="/addVehicle" >Add</a>      
+      </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -26,6 +30,7 @@
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveEntity(entity, i)"
+        routerLink="/vehicles/{{ entity.id }}"
       >
         {{ entity.name }}
         
@@ -46,9 +51,6 @@
       </div>
 
 
-      <a class="badge badge-warning" routerLink="/vehicles/{{ entity.id }}">
-        Edit
-      </a>
     </div>
   </div>
 </div>

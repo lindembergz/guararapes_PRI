@@ -6997,11 +6997,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
+      "projectUniqueName": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
       "projectName": "LukeSkywalker",
-      "projectPath": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
+      "projectPath": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker.csproj",
       "packagesPath": "C:\\Users\\300068543\\.nuget\\packages\\",
-      "outputPath": "C:\\Lindemberg\\guararapes_PRI\\LukeSkywalker\\LukeSkywalker\\obj\\",
+      "outputPath": "C:\\Lindemberg\\PRI\\BackEnd\\LukeSkywalker\\LukeSkywalker\\LukeSkywalker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\300068543\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7091,7 +7091,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

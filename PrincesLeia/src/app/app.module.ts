@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,9 +34,14 @@ import { StarShipsListComponent } from './components/starship/starship-list/star
 import { AddVehicleComponent } from './components/vehicle/vehicle-add/vehicle-add.component';
 import { VehicleDetailsComponent } from './components/vehicle/vehicle-details/vehicle-details.component';
 import { VehiclesListComponent } from './components/vehicle/vehicle-list/vehicles-list.component';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 
-import { PeoplePlanetsListComponent } from './components/pesquisa/peopleplanets-list.component';
+
+import { PesquisaListComponent } from './components/pesquisa/pesquisa-list.component';
+
+import { LoginComponent } from './components/login/login-component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -58,7 +65,8 @@ import { PeoplePlanetsListComponent } from './components/pesquisa/peopleplanets-
     AddVehicleComponent,
     VehicleDetailsComponent,
     VehiclesListComponent,
-    PeoplePlanetsListComponent, 
+    PesquisaListComponent, 
+    LoginComponent
 
   ],
   imports: [

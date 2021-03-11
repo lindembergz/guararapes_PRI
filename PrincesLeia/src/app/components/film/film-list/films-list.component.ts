@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Films } from 'src/app/models/film.models';
 import { FilmService } from 'src/app/services/film.service';
 
+
 @Component({
   selector: 'app-Films-list',
   templateUrl: './films-list.component.html',
-  styleUrls: ['./films-list.component.css']
+  styleUrls: ['./films-list.component.css'],
+
 })
 export class FilmsListComponent implements OnInit {
   entyties?: Films[];

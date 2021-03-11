@@ -16,10 +16,12 @@ export class PeopleListComponent implements OnInit {
   constructor(private _Service: PeopleService) { }
 
   ngOnInit(): void {
-    this.retrieveEntities();
+    this.retrieveEntities(); 
   }
 
-  retrieveEntities(): void {
+
+
+  retrieveEntities(): void { 
     this._Service.getAll()
       .subscribe(
         data => {

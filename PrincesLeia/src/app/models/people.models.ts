@@ -7,13 +7,13 @@ export class People {
 
     id?: number;
     name? :string;
-    birth_year? :string; 
-    eye_color? :string;
+    birthYear? :string; 
+    eyeColor? :string;
     gender? :string;
-    hair_color? :string; 
+    hairColor? :string; 
     height? :string; 
     mass? :string; 
-    skin_color? :string;
+    skinColor? :string;
     homeworld? :string; 
     films?: Films[]=[]; 
     species?: Specie[]=[];

@@ -1,0 +1,32 @@
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-8">Email</div>
+        <div class="input-group mb-8">
+          <input
+          type="text"
+          class="form-control"
+          placeholder="Search by email"
+          [(ngModel)]="email"
+          />
+        </div>    
+        <div class="input-group mb-8">Password</div>
+        <div class="input-group mb-8">
+         <input
+          type="password"
+          class="form-control"
+          placeholder="Search by senha"
+          [(ngModel)]="senha"
+          />
+        </div>   
+  
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="Login()"
+          >Entrar
+          </button>
+        </div>
+    </div>
+  </div>
+  

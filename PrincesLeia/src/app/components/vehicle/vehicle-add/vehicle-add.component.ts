@@ -12,14 +12,14 @@ export class AddVehicleComponent implements OnInit {
     id: 0,
     name : '',
     model : '',
-    vehicle_class : '',
+    vehicleClass : '',
     manufacturer : '',
     length : '',
-    cost_in_credits : '',
+    costInCredits : '',
     crew : '',
     passengers : '',
-    max_atmosphering_speed : '',
-    cargo_capacity : '', 
+    maxAtmospheringSpeed : '',
+    cargoCapacity : '', 
     consumables : '',
     people: [],
     films: [],
@@ -38,12 +38,7 @@ export class AddVehicleComponent implements OnInit {
   }
 
   save(): void {
-    const data = {
-       name: this.entity.name,
-    
-    };
-
-    this._Service.create(data)
+     this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -59,14 +54,14 @@ export class AddVehicleComponent implements OnInit {
     this.entity = {
       name : '',
       model : '',
-      vehicle_class : '',
+      vehicleClass : '',
       manufacturer : '',
       length : '',
-      cost_in_credits : '',
+      costInCredits : '',
       crew : '',
       passengers : '',
-      max_atmosphering_speed : '',
-      cargo_capacity : '', 
+      maxAtmospheringSpeed : '',
+      cargoCapacity : '', 
       consumables : '',
       people: [],
       films: [],

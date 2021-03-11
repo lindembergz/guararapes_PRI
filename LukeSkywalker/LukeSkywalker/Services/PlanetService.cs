@@ -1,10 +1,9 @@
-﻿using System;
+﻿using LukeSkywalker.Database;
+using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using LukeSkywalker.Models;
-using LukeSkywalker.Domain.Interfaces.Services;
-using LukeSkywalker.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace LukeSkywalker.Services
 {
@@ -54,7 +53,7 @@ namespace LukeSkywalker.Services
 
         public ICollection<Planets> List(string text)
         {
-            return  database.Planets.AsNoTracking().Where((registro) => registro.Name.Contains(text) || text == "").ToList(); 
+            return database.Planets.AsNoTracking().Where((registro) => registro.Name.Contains(text) || text == "").ToList();
         }
     }
 }

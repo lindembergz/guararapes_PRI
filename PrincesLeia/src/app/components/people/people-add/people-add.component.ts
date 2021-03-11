@@ -11,13 +11,13 @@ export class AddPeopleComponent implements OnInit {
   entity: People = {
     id: 0,
     name :'',
-    birth_year :'', 
-    eye_color :'',
+    birthYear :'', 
+    eyeColor :'',
     gender :'',
-    hair_color:'', 
+    hairColor:'', 
     height :'', 
     mass :'', 
-    skin_color :'',
+    skinColor :'',
     homeworld :'', 
     films:[], 
     species: [],
@@ -37,12 +37,7 @@ export class AddPeopleComponent implements OnInit {
   }
 
   save(): void {
-    const data = {
-       name: this.entity.name,
-       episode_id: this.entity.birth_year
-    };
-
-    this._Service.create(data)
+    this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -57,13 +52,13 @@ export class AddPeopleComponent implements OnInit {
     this.submitted = false;
     this.entity = {
       name :'',
-      birth_year :'', 
-      eye_color :'',
+      birthYear :'', 
+      eyeColor :'',
       gender :'',
-      hair_color:'', 
+      hairColor:'', 
       height :'', 
       mass :'', 
-      skin_color :'',
+      skinColor :'',
       homeworld :'', 
       films:[], 
       species: [],

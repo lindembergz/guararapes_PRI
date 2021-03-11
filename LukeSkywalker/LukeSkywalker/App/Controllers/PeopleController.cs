@@ -1,11 +1,11 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using LukeSkywalker.Models;
-using Microsoft.AspNetCore.Cors;
-using LukeSkywalker.Domain.Interfaces.Services;
+﻿using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
 using LukeSkywalker.Services;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace LukeSkywalker.Controllers
+namespace LukeSkywalker.App.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
@@ -14,7 +14,7 @@ namespace LukeSkywalker.Controllers
     {
         private readonly IServiceEntity<People> service;
         public PeopleController(IServiceEntity<People> _service)
-        {          
+        {
             this.service = _service;
         }
 
@@ -30,7 +30,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
 
         }
@@ -42,11 +42,9 @@ namespace LukeSkywalker.Controllers
         {
             try
             {
-                //Film film = await database.films.FindAsync( id );//(registro => registro.Id == id);
                 People entityActual = service.GetById(id);
                 if (entityActual != null)
                 {
-                    //FilmContainer filmHATEOAS = new FilmContainer(filmActual, HATEOAS.GetActions(filmActual.id.ToString()));
                     Response.StatusCode = 302;
                     return Ok(entityActual);
                 }
@@ -59,7 +57,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -76,55 +74,69 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
-            }  
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
+            }
         }
 
 
         [EnableCors("AnotherPolicy")]
-        [HttpGet("vwPeoplePlanets")]
+        [HttpGet("Pesquisar")]
         public IActionResult View()
         {
+
             try
             {
+                string film = Request.Query["film"];
+                string specie = Request.Query["specie"];
+                string planet = Request.Query["planet"];
+                string starship = Request.Query["starship"];
+                string vehicle = Request.Query["vehicle"];
                 string gender = Request.Query["gender"];
                 string population = Request.Query["population"];
 
-               var entities = ( (PeopleService)service ).GetPeoplePlanets(gender, population);       
+                var entities = ((PeopleService)service).GetDTOPeople(
+                    film, specie, planet, starship, vehicle, gender, population);
 
-                
                 return Ok(entities);
             }
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
-        }        
+        }
 
         [EnableCors("AnotherPolicy")]
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public IActionResult Create([FromBody] People entity)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (entity.Id == 0)
+                if (ModelState.IsValid)
                 {
-                    service.Create(entity);
-                    Response.StatusCode = 201;//Created
-                    return Ok(new { msg = "criado com sucesso!" });
+                    if (entity.Id == 0)
+                    {
+                        service.Create(entity);
+                        Response.StatusCode = 201;//Created
+                        return Ok(new { msg = "criado com sucesso!" });
+                    }
+                    else
+                    {
+                        Response.StatusCode = 404;//	Not Acceptable
+                        return null;
+                    }
                 }
                 else
                 {
-                    Response.StatusCode = 404;//	Not Acceptable
-                    return null;
+                    Response.StatusCode = 406;//	Not Acceptable
+                    return new ObjectResult("deu ruim!  ");
                 }
             }
-            else
+            catch (Exception e)
             {
                 Response.StatusCode = 406;//	Not Acceptable
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -149,7 +161,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 406;//	Not Acceptable
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -165,7 +177,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 

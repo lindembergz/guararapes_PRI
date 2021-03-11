@@ -16,6 +16,9 @@
           Search
         </button>
       </div>
+      <div class="input-group-append">
+        <a href="/addPeople" >Add</a>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -25,7 +28,8 @@
         class="list-group-item list-group-item-action active"
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveEntity(entity, i)"        
+        (click)="setActiveEntity(entity, i)"       
+        routerLink="/people/{{ entity.id }}" 
       >
         {{ entity.name }}
         
@@ -44,13 +48,13 @@
         <label><strong>Name:</strong></label> {{ entity.name }}
       </div>
       <div>
-        <label><strong>eye_color:</strong></label> {{ entity.eye_color }}
+        <label><strong>eye_color:</strong></label> {{ entity.eyeColor }}
       </div>
       <div>
         <label><strong>gender:</strong></label> {{ entity.gender }}
       </div>
       <div>
-        <label><strong>hair_color:</strong></label> {{ entity.hair_color }}
+        <label><strong>hair_color:</strong></label> {{ entity.hairColor }}
       </div>
       <div>
         <label><strong>height:</strong></label> {{ entity.height }}
@@ -59,11 +63,8 @@
         <label><strong>mass:</strong></label> {{ entity.mass }}
       </div>
       <div>
-        <label><strong>skin_color:</strong></label> {{ entity.skin_color }}
+        <label><strong>skin_color:</strong></label> {{ entity.skinColor }}
       </div>
-      <a class="badge badge-warning" routerLink="/people/{{ entity.id }}">
-        Edit
-      </a>
     </div>
 
   </div>

@@ -16,6 +16,10 @@
           Search
         </button>
       </div>
+      <div class="input-group-append">
+        <a href="/addPlanet" >Add</a>
+        
+      </div>
     </div>
   </div>
   <div class="col-md-6">
@@ -26,6 +30,7 @@
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveEntity(entity, i)"
+        routerLink="/planets/{{ entity.id }}"
       >
         {{ entity.name }}
         
@@ -46,10 +51,10 @@
         <label><strong>diameter:</strong></label> {{ entity.diameter }}
       </div>
       <div>
-        <label><strong>rotation_period:</strong></label> {{ entity.rotation_period }}
+        <label><strong>rotation_period:</strong></label> {{ entity.rotationPeriod }}
       </div>
       <div>
-        <label><strong>orbital_period:</strong></label> {{ entity.orbital_period }}
+        <label><strong>orbital_period:</strong></label> {{ entity.orbitalPeriod }}
       </div>
       <div>
         <label><strong>gravity:</strong></label> {{ entity.gravity }}
@@ -64,12 +69,10 @@
         <label><strong>terrain:</strong></label> {{ entity.terrain }}
       </div>
       <div>
-        <label><strong>surface_water:</strong></label> {{ entity.surface_water }}
+        <label><strong>surface_water:</strong></label> {{ entity.surfaceWater }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/planets/{{ entity.id }}">
-        Edit
-      </a>
+
     </div>
   </div>
 </div>

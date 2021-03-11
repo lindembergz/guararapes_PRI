@@ -1,0 +1,17 @@
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\api rest.deps.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\api rest.runtimeconfig.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\api rest.runtimeconfig.dev.json
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\api rest.dll
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\bin\Debug\netcoreapp2.2\api rest.pdb
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.csprojAssemblyReference.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.AssemblyInfoInputs.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.AssemblyInfo.cs
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.csproj.CoreCompileInputs.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.RazorAssemblyInfo.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.RazorAssemblyInfo.cs
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.RazorTargetAssemblyInfo.cache
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.dll
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.pdb
+C:\Lindemberg\autenticao-jwt-com-asp-net-core-master\obj\Debug\netcoreapp2.2\api rest.genruntimeconfig.cache

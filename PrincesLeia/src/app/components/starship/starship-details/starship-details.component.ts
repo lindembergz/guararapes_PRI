@@ -13,16 +13,16 @@ export class StarShipDetailsComponent implements OnInit {
     id: 0,
     name :'', 
     model:'', 
-    starship_class :'',
+    starshipClass :'',
     manufacturer :'',
-    cost_in_credits :'',
+    costInCredits :'',
     length :'',
     crew :'',
     passengers :'',
-    max_atmosphering_speed :'',
-    hyperdrive_rating :'',
+    maxAtmospheringSpeed :'',
+    hyperdriveRating :'',
     MGLT :'', 
-    cargo_capacity :'',
+    cargoCapacity :'',
     consumables :'',
     people: [],
     films: [],
@@ -49,27 +49,6 @@ export class StarShipDetailsComponent implements OnInit {
         data => {
           this.entity = data;
           console.log(this.entity.id);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      id: this.entity.id,
-      name: this.entity.name,
-   
-    };
-
-    this.message = '';
-
-    this._Service.update(this.entity.id, data)
-      .subscribe(
-        response => {
-
-          console.log(response);
-          this.message = response.message ? response.message : 'alterado com sucesso!';
         },
         error => {
           console.log(error);

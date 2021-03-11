@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using LukeSkywalker.Models;
+﻿using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
-using LukeSkywalker.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace LukeSkywalker.Controllers
+namespace LukeSkywalker.App.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
@@ -30,7 +30,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
 
         }
@@ -48,7 +48,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -74,7 +74,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -83,24 +83,32 @@ namespace LukeSkywalker.Controllers
         //[ValidateAntiForgeryToken]
         public IActionResult Create([FromBody] Species entity)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (entity.Id == 0)
+                if (ModelState.IsValid)
                 {
-                    service.Create(entity);
-                    Response.StatusCode = 201;//Created
-                    return Ok(new { msg = "criado com sucesso!" });
+                    if (entity.Id == 0)
+                    {
+                        service.Create(entity);
+                        Response.StatusCode = 201;//Created
+                        return Ok(new { msg = "criado com sucesso!" });
+                    }
+                    else
+                    {
+                        Response.StatusCode = 404;//	Not Acceptable
+                        return null;
+                    }
                 }
                 else
                 {
-                    Response.StatusCode = 404;//	Not Acceptable
-                    return null;
+                    Response.StatusCode = 406;//	Not Acceptable
+                    return new ObjectResult("deu ruim!");
                 }
             }
-            else
+            catch (Exception e)
             {
                 Response.StatusCode = 406;//	Not Acceptable
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -125,7 +133,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 406;//	Not Acceptable
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
         [EnableCors("AnotherPolicy")]
@@ -140,7 +148,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using LukeSkywalker.Models;
+﻿using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
-using LukeSkywalker.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace LukeSkywalker.Controllers
+namespace LukeSkywalker.App.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
@@ -31,7 +30,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
 
         }
@@ -49,7 +48,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -63,7 +62,7 @@ namespace LukeSkywalker.Controllers
                 Planets entityActual = service.GetById(id);
                 if (entityActual != null)
                 {
-                     Response.StatusCode = 302;
+                    Response.StatusCode = 302;
                     return Ok(entityActual);
                 }
                 else
@@ -75,7 +74,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 
@@ -126,7 +125,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 406;//	Not Acceptable
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
         [EnableCors("AnotherPolicy")]
@@ -141,7 +140,7 @@ namespace LukeSkywalker.Controllers
             catch (Exception e)
             {
                 Response.StatusCode = 404;
-                return new ObjectResult("deu ruim!");
+                return new ObjectResult("deu ruim! Mensagem: " + e.Message);
             }
         }
 

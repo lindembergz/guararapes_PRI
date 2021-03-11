@@ -16,16 +16,20 @@
           Search
         </button>
       </div>
+      <div class="input-group-append">
+        <a href="/addSpecie" >Add</a>   
+     </div>
     </div>
   </div>
   <div class="col-md-6">
-    <h4>Film List</h4>
+    <h4>Specie List</h4>
     <ul class="list-group">
       <li
         class="list-group-item list-group-item-action active"
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveEntity(entity, i)"
+        routerLink="/species/{{ entity.id }}"
       >
         {{ entity.name }}
         
@@ -50,27 +54,25 @@
         <label><strong>designation:</strong></label> {{ entity.designation }}
       </div>
       <div>
-        <label><strong>average_height:</strong></label> {{ entity.average_height }}
+        <label><strong>average_height:</strong></label> {{ entity.averageHeight }}
       </div>
       <div>
-        <label><strong>average_lifespan:</strong></label> {{ entity.average_lifespan }}
+        <label><strong>average_lifespan:</strong></label> {{ entity.averageLifespan }}
       </div>
       <div>
-        <label><strong>eye_colors:</strong></label> {{ entity.eye_colors }}
+        <label><strong>eye_colors:</strong></label> {{ entity.eyeColors }}
       </div>
       <div>
-        <label><strong>hair_colors:</strong></label> {{ entity.hair_colors }}
+        <label><strong>hair_colors:</strong></label> {{ entity.hairColors }}
       </div>
       <div>
-        <label><strong>skin_colors:</strong></label> {{ entity.skin_colors }}
+        <label><strong>skin_colors:</strong></label> {{ entity.skinColors }}
       </div>
       <div>
         <label><strong>Name:</strong></label> {{ entity.language }}
       </div>
 
-     <a class="badge badge-warning" routerLink="/species/{{ entity.id }}">
-        Edit
-      </a>
+
     </div>
 
   </div>

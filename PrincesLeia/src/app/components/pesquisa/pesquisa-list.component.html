@@ -1,0 +1,93 @@
+<div class="list row">
+  <div class="col-md-8">
+      <div class="input-group mb-8">film</div>
+      <div class="input-group mb-8">
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search by film"
+        [(ngModel)]="film"
+        />
+      </div>    
+      <div class="input-group mb-8">Specie</div>
+      <div class="input-group mb-8">
+       <input
+        type="text"
+        class="form-control"
+        placeholder="Search by specie"
+        [(ngModel)]="specie"
+        />
+      </div>   
+      <div class="input-group mb-8">Planet</div>    
+      <div class="input-group mb-8">
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search by planet"
+        [(ngModel)]="planet"
+        />
+      </div>
+      <div class="input-group mb-8"> StarShip</div>
+      <div class="input-group mb-8">
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search by starship"
+        [(ngModel)]="starship"
+        />
+      </div>
+      <div class="input-group mb-8">Vehicle</div>
+      <div class="input-group mb-8">
+        <input
+        type="text"
+        class="form-control"
+        placeholder="Search by vehicle"
+        [(ngModel)]="vehicle"
+        />
+      </div>
+      <div class="input-group mb-8">Gender</div>
+      <div class="input-group mb-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by gender"
+          [(ngModel)]="gender"
+        />
+      </div>
+      <div class="input-group mb-8">Population</div>
+      <div class="input-group mb-8">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by population"
+          [(ngModel)]="population"
+        />
+      </div>
+
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="search()"
+        >Search
+        </button>
+      </div>
+  </div>
+
+  <div class="col-md-6">
+    <h4 class="h4">Personagens {{gender}} que vivem em planetas com população acima de {{population}}</h4>
+    Count : {{CountPeople}}
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-item-action active"
+        *ngFor="let entity of entyties; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntity(entity, i)"        
+      >
+        {{ entity.name }}
+        
+      </li>
+    </ul>
+    
+  </div>  
+</div>

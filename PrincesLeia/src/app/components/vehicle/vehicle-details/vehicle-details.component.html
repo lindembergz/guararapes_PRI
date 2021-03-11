@@ -1,4 +1,5 @@
 <div>
+  <button type="button" class="btn btn-link"  routerLink="/vehicles">Back</button>
   <div *ngIf="entity.id" class="edit-form">
     <h4>Vehicle</h4>
     <form>
@@ -12,6 +13,119 @@
           name="name"
         />
       </div>
+
+      <div class="form-group">
+        <label for="model">model</label>
+        <input
+          type="text"
+          class="form-control"
+          id="model"
+          [(ngModel)]="entity.model"
+          name="model"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="vehicleClass">vehicleClass</label>
+        <input
+          type="text"
+          class="form-control"
+          id="vehicleClass"
+          [(ngModel)]="entity.vehicleClass"
+          name="vehicleClass"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="manufacturer">manufacturer</label>
+        <input
+          type="text"
+          class="form-control"
+          id="manufacturer"
+          [(ngModel)]="entity.manufacturer"
+          name="manufacturer"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="length">length</label>
+        <input
+          type="text"
+          class="form-control"
+          id="length"
+          [(ngModel)]="entity.length"
+          name="length"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="costInCredits">costInCredits</label>
+        <input
+          type="text"
+          class="form-control"
+          id="costInCredits"
+          [(ngModel)]="entity.costInCredits"
+          name="costInCredits"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="crew">crew</label>
+        <input
+          type="text"
+          class="form-control"
+          id="crew"
+          [(ngModel)]="entity.crew"
+          name="crew"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="passengers">passengers</label>
+        <input
+          type="text"
+          class="form-control"
+          id="passengers"
+          [(ngModel)]="entity.passengers"
+          name="passengers"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="maxAtmospheringSpeed">maxAtmospheringSpeed</label>
+        <input
+          type="text"
+          class="form-control"
+          id="maxAtmospheringSpeed"
+          [(ngModel)]="entity.maxAtmospheringSpeed"
+          name="maxAtmospheringSpeed"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="cargoCapacity">cargoCapacity</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cargoCapacity"
+          [(ngModel)]="entity.cargoCapacity"
+          name="cargoCapacity"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="consumables">consumables</label>
+        <input
+          type="text"
+          class="form-control"
+          id="consumables"
+          [(ngModel)]="entity.consumables"
+          name="consumables"
+        />
+      </div>
+
+
+
 
     </form>
 

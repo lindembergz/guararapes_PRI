@@ -8,13 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="Infra\Repository\NovaPasta\**" />
-    <Compile Remove="App\ViewModels\NovaPasta\**" />
     <Content Remove="Infra\Repository\NovaPasta\**" />
-    <Content Remove="App\ViewModels\NovaPasta\**" />
     <EmbeddedResource Remove="Infra\Repository\NovaPasta\**" />
-    <EmbeddedResource Remove="App\ViewModels\NovaPasta\**" />
     <None Remove="Infra\Repository\NovaPasta\**" />
-    <None Remove="App\ViewModels\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +34,7 @@
 
   <ItemGroup>
     <Folder Include="Domain\InterfaceRepository\" />
+    <Folder Include="Infra\Repository\" />
   </ItemGroup>
 
 </Project>

@@ -12,13 +12,13 @@ export class AddPlanetComponent implements OnInit {
     id: 0,
     name : '',
     diameter: '',   
-    rotation_period: '',
-    orbital_period : '',
+    rotationPeriod: '',
+    orbitalPeriod : '',
     gravity : '',
     population: '',
     climate: '',
     terrain : '',
-    surface_water : '',
+    surfaceWater : '',
     people:  [],
     films:  [],
     url : '',
@@ -36,11 +36,7 @@ export class AddPlanetComponent implements OnInit {
   }
 
   save(): void {
-    const data = {
-       name: this.entity.name,
-    };
-
-    this._Service.create(data)
+    this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -56,13 +52,13 @@ export class AddPlanetComponent implements OnInit {
     this.entity = {
       name : '',
       diameter: '',   
-      rotation_period: '',
-      orbital_period : '',
+      rotationPeriod: '',
+      orbitalPeriod : '',
       gravity : '',
       population: '',
       climate: '',
       terrain : '',
-      surface_water : '',
+      surfaceWater : '',
       people:  [],
       films:  [],
       url : '',

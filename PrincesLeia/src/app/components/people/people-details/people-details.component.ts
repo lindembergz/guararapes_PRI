@@ -12,13 +12,13 @@ export class PeopleDetailsComponent implements OnInit {
   entity: People = {
     id: 0,
     name :'',
-    birth_year :'', 
-    eye_color :'',
+    birthYear :'', 
+    eyeColor :'',
     gender :'',
-    hair_color:'', 
+    hairColor:'', 
     height :'', 
     mass :'', 
-    skin_color :'',
+    skinColor :'',
     homeworld :'', 
     films:[], 
     species: [],
@@ -47,27 +47,6 @@ export class PeopleDetailsComponent implements OnInit {
         data => {
           this.entity = data;
           console.log(this.entity.id);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      id: this.entity.id,
-      title: this.entity.name,
-      episode_id: this.entity.eye_color,
-    };
-
-    this.message = '';
-
-    this._Service.update(this.entity.id, data)
-      .subscribe(
-        response => {
-
-          console.log(response);
-          this.message = response.message ? response.message : 'alterado com sucesso!';
         },
         error => {
           console.log(error);

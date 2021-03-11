@@ -25,9 +25,13 @@ import { AddStarShipComponent } from './components/starship/starship-add/starshi
 import { VehiclesListComponent } from './components/vehicle/vehicle-list/vehicles-list.component';
 import { VehicleDetailsComponent } from './components/vehicle/vehicle-details/vehicle-details.component';
 import { AddVehicleComponent } from './components/vehicle/vehicle-add/vehicle-add.component';
-import { PeoplePlanetsListComponent } from './components/pesquisa/peopleplanets-list.component';
+import { PesquisaListComponent } from './components/pesquisa/pesquisa-list.component';
+
+import { LoginComponent } from './components/login/login-component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
 
   { path: '', redirectTo: 'people', pathMatch: 'full' },
   { path: 'people', component: PeopleListComponent },
@@ -54,13 +58,23 @@ const routes: Routes = [
   { path: 'vehicles/:id', component: VehicleDetailsComponent },
 
   { path: '', redirectTo: 'peopleplanets', pathMatch: 'full' },
-  { path: 'peopleplanets', component: PeoplePlanetsListComponent },
+  { path: 'peopleplanets', component: PesquisaListComponent },  
   
-  { path: 'add', component: AddFilmComponent }
+  { path: 'addFilm', component: AddFilmComponent },
+  { path: 'addPeople', component: AddPeopleComponent },
+  { path: 'addPlanet', component: AddPlanetComponent },
+  { path: 'addSpecie', component: AddSpecieComponent },
+  { path: 'addStarship', component: AddStarShipComponent },
+  { path: 'addVehicle', component: AddVehicleComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule 
+{
+ 
+
+ }

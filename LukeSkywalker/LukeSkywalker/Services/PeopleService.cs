@@ -1,18 +1,18 @@
-﻿using System;
+﻿using LukeSkywalker.Database;
+using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
+using LukeSkywalker.Service.DTO;
+using LukeSkywalker.Services.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using LukeSkywalker.Models;
-using LukeSkywalker.Domain.Interfaces.Services;
-using LukeSkywalker.Database;
-using Microsoft.EntityFrameworkCore;
-using LukeSkywalker.viewmodels;
-
 
 namespace LukeSkywalker.Services
 {
     public class PeopleService : IServiceEntity<People>
     {
         private readonly ApplicationDBContext database;
+
 
         public PeopleService(ApplicationDBContext database)
         {
@@ -44,7 +44,7 @@ namespace LukeSkywalker.Services
         {
             return database.
                 People.
-                Include(p => p.PeopleFilmsFilms).                
+                Include(p => p.FilmsPeoplePeople).
                 First(registro => registro.Id == id);
         }
 
@@ -62,13 +62,64 @@ namespace LukeSkywalker.Services
             return database.People.AsNoTracking().Where((registro) => registro.Name.Contains(text) || text == "").ToList();
         }
 
-        public List<vwPeoplePlanets> GetPeoplePlanets(string gender, string population)
+        public List<DTOPeople> GetDTOPeople(
+            string film,
+            string specie,
+            string starship,
+            string planet,
+            string vehicle,
+            string gender,
+            string population)
+
+
         {
-            // MELHOR ESTÁ NO REPOSITORIO DA ENTIDADE
-            var entities =  database.vwPeoplePlanets.FromSqlRaw(
-                           $"select Id, Name, Gender, Population from vwPeoplePlanets " +
-                           $"where Gender= '{gender}' and Population> {population}").AsNoTracking().ToList();
+
+            var whereGender = "";
+            var whereSpecie = "";
+            var wherefilm = "";
+            var wherestarship = "";
+            var whereplanet = "";
+            var wherevehicle = "";
+
+
+            if (gender != "" && gender != null)
+            {
+                whereGender = $"Gender = '{gender}' and ";
+            }
+
+            if (specie != "" && specie != null)
+            {
+                whereSpecie = this.GetConditionSpecie(specie);
+            }
+            if (starship != "" && starship != null)
+            {
+                wherestarship = this.GetConditionSpecie(starship);
+            }
+            if ((planet != "" && planet != null) || (population != "" && population != null))
+            {
+                whereplanet = this.GetConditionPlanet(planet, population);
+            }
+            if (vehicle != "" && vehicle != null)
+            {
+                wherevehicle = whereplanet = this.GetConditionVehicle(vehicle);
+            }
+
+            if (film != "" && film != null)
+            {
+                wherefilm = this.GetConditionFilm(film);
+            }
+
+            var conditions = whereGender + whereSpecie + wherestarship + whereplanet + wherevehicle + wherefilm;
+
+            if (conditions != "")
+            {
+                conditions = $"where {conditions} people.Id is not null";
+            }
+
+            var entities = database.DTOPeople.FromSqlRaw($"Select Id, Name From people " + conditions).AsNoTracking().ToList();
+
             return entities;
         }
+
     }
 }

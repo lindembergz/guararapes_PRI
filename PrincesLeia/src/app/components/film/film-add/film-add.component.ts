@@ -11,12 +11,12 @@ export class AddFilmComponent implements OnInit {
   entity: Films = {
       id: 0,
       title: '',
-      episode_id: 0 ,
-      opening_crawl: '',
+      episodeId: 0 ,
+      openingCrawl: '',
       director: '',
       producer: '',
-      release_date: '',    
-      species: [],
+      releaseDate: '',    
+      films: [],
       starships:[],
       vehicles:[],
       people:[],
@@ -36,12 +36,7 @@ export class AddFilmComponent implements OnInit {
   }
 
   save(): void {
-    const data = {
-       title: this.entity.title,
-      episode_id: this.entity.episode_id
-    };
-
-    this._Service.create(data)
+     this._Service.create(this.entity)
       .subscribe(
         response => {
           console.log(response);
@@ -56,19 +51,19 @@ export class AddFilmComponent implements OnInit {
     this.submitted = false;
     this.entity = {
       title: '',
-      episode_id: 0,
-      opening_crawl: '',
+      episodeId: 0,
+      openingCrawl: '',
       director: '',
       producer: '',
-      release_date: '',    
-      species: [],
+      releaseDate: '', 
+      url: '',
+      created: '',
+      edited: '',
+      films:[],
       starships:[],
       vehicles:[],
       people:[],
       planets :[],
-      url: '',
-      created: '',
-      edited: '',
     };
   }
 

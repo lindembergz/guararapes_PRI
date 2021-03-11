@@ -12,19 +12,19 @@ export class FilmDetailsComponent implements OnInit {
   entity: Films = {
     id: 0,
     title: '',
-    episode_id: 0 ,
-    opening_crawl: '',
+    episodeId: 0 ,
+    openingCrawl: '',
     director: '',
     producer: '',
-    release_date: '',    
-    species: [],
+    releaseDate: '',        
+    url: '',
+    created: '',
+    edited: '',
+    films: [],
     starships:[],
     vehicles:[],
     people:[],
     planets :[],
-    url: '',
-    created: '',
-    edited: '',
     };
     
   message = '';
@@ -45,27 +45,6 @@ export class FilmDetailsComponent implements OnInit {
         data => {
           this.entity = data;
           console.log(this.entity.id);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      id: this.entity.id,
-      title: this.entity.title,
-      episode_id: this.entity.episode_id,
-    };
-
-    this.message = '';
-
-    this._Service.update(this.entity.id, data)
-      .subscribe(
-        response => {
-
-          console.log(response);
-          this.message = response.message ? response.message : 'alterado com sucesso!';
         },
         error => {
           console.log(error);

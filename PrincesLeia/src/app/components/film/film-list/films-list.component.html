@@ -16,6 +16,12 @@
           Search
         </button>
       </div>
+
+      <a href="/addFilm" >Add</a>
+     
+      
+
+
     </div>
   </div>
   <div class="col-md-6">
@@ -26,6 +32,8 @@
         *ngFor="let entity of entyties; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveEntity(entity, i)"
+
+        routerLink="/films/{{ entity.id }}"
       >
         {{ entity.title }}
         
@@ -45,7 +53,7 @@
       </div>
       <div>
         <label><strong>episode:</strong></label>
-        {{ entity.episode_id }}
+        {{ entity.episodeId }}
       </div>
       <div>
         <label><strong>Diretor:</strong></label> {{ entity.director }}
@@ -54,12 +62,8 @@
         <label><strong>Produtor:</strong></label> {{ entity.producer }}
       </div>
       <div>
-        <label><strong>Data:</strong></label> {{ entity.release_date }}
+        <label><strong>Data:</strong></label> {{ entity.releaseDate }}
       </div>
-
-      <a class="badge badge-warning" routerLink="/films/{{ entity.id }}">
-        Edit
-      </a>
     </div>
   </div>
 </div>

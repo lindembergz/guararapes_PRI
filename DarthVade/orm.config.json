@@ -8,7 +8,7 @@
     "host": "localhost",
     "username": "root",
     "password": "1234",
-    "database": "starwars",
+    "database": "swapi",
 
     "port":3306,
     "entities": ["src/modules/**/*entity{.ts,.js}"], 

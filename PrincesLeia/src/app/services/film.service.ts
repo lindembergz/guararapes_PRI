@@ -2,48 +2,57 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Films } from '../models/film.models';
-
-const baseUrl = 'http://localhost:5000/api/v1/Film';
+import {BaseURL} from '../constants';
+ 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmService {
 
-  constructor(private http: HttpClient) { }
+  baseUrl = '';
+
+  
+
+  constructor(private http: HttpClient ) 
+  {
+    this.baseUrl = BaseURL+'Film';
+   }
 
   getAll(): Observable<Films[]> {
-    return this.http.get<Films[]>(baseUrl);
+    console.log("service.getAll");
+    return this.http.get<Films[]>(this.baseUrl);
   }
 
-  get(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id: any): Observable<any> {  
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.http.post(this.baseUrl, data);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}`, data);
+    return this.http.put(`${this.baseUrl}`, data);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
+    return this.http.delete(this.baseUrl);
   }
 
   findByTitle(title: any): Observable<Films[]> {
     if (title!= "")
     {
-     return this.http.get<Films[]>(`${baseUrl}/list/${title}`);
+      console.log("service.findByTitle");
+     return this.http.get<Films[]>(`${this.baseUrl}/list/${title}`);
     }
     else
     {
-      return this.http.get<Films[]>(`${baseUrl}`); 
+      return this.http.get<Films[]>(`${this.baseUrl}`); 
     }
   }
 }

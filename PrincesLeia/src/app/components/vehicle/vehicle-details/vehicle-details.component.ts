@@ -13,14 +13,14 @@ export class VehicleDetailsComponent implements OnInit {
     id: 0,
     name : '',
     model : '',
-    vehicle_class : '',
+    vehicleClass : '',
     manufacturer : '',
     length : '',
-    cost_in_credits : '',
+    costInCredits : '',
     crew : '',
     passengers : '',
-    max_atmosphering_speed : '',
-    cargo_capacity : '', 
+    maxAtmospheringSpeed : '',
+    cargoCapacity : '', 
     consumables : '',
     people: [],
     films: [],
@@ -47,27 +47,6 @@ export class VehicleDetailsComponent implements OnInit {
         data => {
           this.entity = data;
           console.log(this.entity.id);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  updatePublished(status: boolean): void {
-    const data = {
-      id: this.entity.id,
-      name: this.entity.name,
-   
-    };
-
-    this.message = '';
-
-    this._Service.update(this.entity.id, data)
-      .subscribe(
-        response => {
-
-          console.log(response);
-          this.message = response.message ? response.message : 'alterado com sucesso!';
         },
         error => {
           console.log(error);

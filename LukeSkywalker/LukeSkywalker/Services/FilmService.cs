@@ -1,10 +1,11 @@
-﻿using System;
+﻿using LukeSkywalker.Database;
+using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using LukeSkywalker.Models;
-using LukeSkywalker.Domain.Interfaces.Services;
-using LukeSkywalker.Database;
-using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace LukeSkywalker.Services
 {
@@ -12,15 +13,19 @@ namespace LukeSkywalker.Services
     {
         private readonly ApplicationDBContext database;
 
-        public FilmService(ApplicationDBContext database)
+        public FilmService(ApplicationDBContext _database)
         {
-            this.database = database;
+            database = _database;
         }
+
 
         public void Create(Films entity)
         {
             if (entity.Id == 0)
             {
+                //Films e = new Films();
+                // CopiaPropriedades(entity, e);
+
                 database.Films.Add(entity);
             }
             database.SaveChanges();
@@ -35,15 +40,28 @@ namespace LukeSkywalker.Services
 
         public ICollection<Films> Get()
         {
-            return database.
-                Films.
-                Include("FilmsPeoplePeople.People").AsNoTracking().ToList();
-                
+            return database.Films.AsNoTracking().ToList();
         }
 
         public Films GetById(int id)
         {
-            return database.Films.Include(p => p.FilmsPeoplePeople).First(registro => registro.Id == id);
+
+            return database.Films.
+              //Include("FilmsPeoplePeople.People").
+              Include(fpp => fpp.FilmsPeoplePeople).
+                   ThenInclude(pp => pp.People).First(registro => registro.Id == id);
+            /*Include(fpl=>fpl.FilmsPlanetsPlanets).
+                 ThenInclude(pl => pl.Planets).
+            Include(fpl => fpl.FilmsSpeciesSpecies).
+                 ThenInclude(pl => pl.Species).                   
+            //Include("FilmsSpeciesSpecies.Species").
+            Include(fpl => fpl.FilmsStarshipsStarships).
+                 ThenInclude(pl => pl.Starships).
+            //Include("FilmsStarshipsStarships.Starships").
+            Include(fpl => fpl.FilmsVehiclesVehicles).
+                 ThenInclude(pl => pl.Vehicles).
+            //Include("FilmsVehiclesVehicles.Vehicles").*/
+
         }
 
         public void Modify(Films entity)
@@ -56,8 +74,8 @@ namespace LukeSkywalker.Services
         }
 
         public ICollection<Films> List(string text)
-        { 
+        {
             return database.Films.AsNoTracking().Where((registro) => registro.Title.Contains(text) || text == "").ToList();
-        }    
+        }
     }
 }

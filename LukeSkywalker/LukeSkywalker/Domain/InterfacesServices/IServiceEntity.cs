@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace LukeSkywalker.Domain.Interfaces.Services
+namespace LukeSkywalker.Domain.Services.Interfaces
 {
     public interface IServiceEntity<T>
     {
