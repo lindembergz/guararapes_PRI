@@ -14,13 +14,13 @@
         {
 
             return (name != "" && population != "") ?
-                               $"Id IN(Select distinct  peopleId From people_planets_planets ppp inner join planets pl on " +
+                               $"Id IN(Select distinct  peopleId From planets_people_people ppp inner join planets pl on " +
                                $"pl.Id = ppp.planetsId where (pl.name = '{name}' and Population> {population})) and " :
                                (name != "" && population == "") ?
-                               $"Id IN(Select distinct  peopleId From people_planets_planets ppp inner join planets pl on " +
+                               $"Id IN(Select distinct  peopleId From planets_people_people ppp inner join planets pl on " +
                                $"pl.Id = ppp.planetsId where (pl.name = '{name}')) and " :
                                (name == "" && population != "") ?
-                               $"Id IN(Select distinct  peopleId From people_planets_planets ppp inner join planets pl on " +
+                               $"Id IN(Select distinct  peopleId From planets_people_people ppp inner join planets pl on " +
                                $"pl.Id = ppp.planetsId where ( Population> {population})) and " : "";
         }
 
