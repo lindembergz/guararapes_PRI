@@ -29,12 +29,10 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.0-alpha.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
 
+    <PackageReference Include="Confluent.Kafka" Version="1.4.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
 
-  </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\InterfaceRepository\" />
-    <Folder Include="Infra\Repository\" />
   </ItemGroup>
 
 </Project>

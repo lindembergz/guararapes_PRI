@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 #nullable disable
 
-namespace LukeSkywalker.Domain.Models
+namespace LukeSkywalker.Domain.Entities
 {
     [Table("people")]
     [Index(nameof(Name), Name = "IDX_e7ec00b080e693706a6eaa6d31", IsUnique = true)]
@@ -27,12 +27,33 @@ namespace LukeSkywalker.Domain.Models
             VehiclesPeoplePeople = new HashSet<VehiclesPeoplePeople>();
         }
 
+        public People( string name,
+                       string birthYea,
+                       string eyeColor ,
+                       string gender,
+                       string hairColor,
+                       string height,
+                       string mass,
+                       string skinColor
+                       )
+        {
+            Name = name;
+            BirthYear = birthYea;
+            EyeColor = eyeColor;
+            Gender = gender;
+            HairColor = hairColor;
+            Height = height;
+            Mass = mass;
+            SkinColor = skinColor;     
+         }
+
+
         [Key]
         [Column("id")]
         public int Id { get; set; }
         [Required]
         [Column("name", TypeName = "varchar(200)")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
         [Column("birth_year", TypeName = "varchar(20)")]
         public string BirthYear { get; set; }
         [Column("eye_color", TypeName = "varchar(200)")]

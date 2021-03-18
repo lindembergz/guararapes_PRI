@@ -3,7 +3,7 @@
     "_host": "mysqlservidor.mysql.database.azure.com",
     "_username": "servidor@mysqlservidor",
     "_password": "982666@Lindemberg",
-    "_database": "starwars",
+    "_database": "swapi",
 
     "host": "localhost",
     "username": "root",

@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 
 #nullable disable
 
-namespace LukeSkywalker.Domain.Models
+namespace LukeSkywalker.Domain.Entities
 {
     [Table("species")]
     [Index(nameof(Name), Name = "IDX_1adf701cac3b2c0f8bacb54774", IsUnique = true)]

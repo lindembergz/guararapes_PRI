@@ -20,6 +20,9 @@ using System.Text;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
+using HanSOLO.Interface.Repository;
+using HanSOLO.Repository;
+using HanSOLO.Service;
 
 namespace HanSOLO
 {
@@ -71,7 +74,6 @@ namespace HanSOLO
                 };
             });
 
-            
 
 
             services.AddMvc();
@@ -80,6 +82,10 @@ namespace HanSOLO
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "HanSOLO", Version = "v1" });
             });
+
+            services.AddTransient<AutenticatorService, AutenticatorService>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IAutenticatorRepository, AutenticatorRepository>();
 
         }
 

@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 
 #nullable disable
 
-namespace LukeSkywalker.Domain.Models
+namespace LukeSkywalker.Domain.Entities
 {
     [Table("films")]
     [Index(nameof(Title), Name = "IDX_ef6e0245decf772d1dd66f158a", IsUnique = true)]

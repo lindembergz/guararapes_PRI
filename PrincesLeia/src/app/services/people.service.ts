@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { People } from '../models/people.models';
 import {BaseURL} from '../constants';
+import { CreatePeopleResponse } from '../Viewmodels/CreatePeopleResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class PeopleService {
 
   }
 
-  getAll(): Observable<People[]> {
-    return this.http.get<People[]>(this.baseUrl);
+  getAll(): Observable<CreatePeopleResponse[]> {
+    return this.http.get<CreatePeopleResponse[]>(this.baseUrl);
   }
 
   get(id: any): Observable<any> {

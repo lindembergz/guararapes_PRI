@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from './config/config.service';
 import { Configuration } from './config/config.key';
 import { ConfigModule } from './config/config.module';
@@ -12,20 +13,24 @@ import { SpecieModule } from './modules/specie/specie.module';
 import { PlanetModule } from './modules/planet/planet.module';
 import { StarshipModule } from './modules/starship/starship.module';
 
+
 @Module({
   
   controllers: [AppController, 
   ],
   providers: [AppService    
   ],
-  imports: [ConfigModule,
+  imports: [
+            
+            ConfigModule,
             DatabaseModule,
             FilmModule,
             PeopleModule,
             VehicleModule,
             SpecieModule,
             PlanetModule,
-            StarshipModule,         
+            StarshipModule,    
+                 
           ],
 })
 export class AppModule {

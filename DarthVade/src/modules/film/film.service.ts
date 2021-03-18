@@ -4,35 +4,58 @@ import { stringify } from 'querystring';
 import { Film } from './film.entity';
 import { FilmRepository } from './film.repository';
 
+import { Controller, Get, Inject, OnModuleInit } from '@nestjs/common';
+import { ClientKafka } from '@nestjs/microservices';
+import { Producer } from '@nestjs/microservices/external/kafka.interface';
+
 @Injectable({ scope: Scope.DEFAULT })
-export class FilmService implements IEntityService<Film>{
+export class FilmService implements IEntityService<Film>, OnModuleInit{
+
+  private kafkaProducer: Producer;
 
   constructor(
-    @InjectRepository(FilmRepository)
-    private readonly _entityRepository: FilmRepository,
+    @InjectRepository(FilmRepository) private readonly _entityRepository: FilmRepository,
+    @Inject('KAFKA_SERVICE') private  readonly clientKafka: ClientKafka,
     )
     {      
     }
 
-    async ExecRelationCommand(tableName: string , idsRelation: string  )
+    async onModuleInit() {
+      //this.kafkaProducer = await this.clientKafka.connect();
+    }
+
+   async ExecRelationCommand(tableName: string , idsRelation: string  )
   {
-    //console.log( tableName + "   "+ idsRelation ); 
-    await this._entityRepository.
-    createQueryBuilder().
-    insert().
-    into(tableName).
-    values([ JSON.parse( idsRelation ) ]).
-    execute();
+      //console.log( tableName + "   "+ idsRelation ); 
+      await this._entityRepository.
+      createQueryBuilder().
+      insert().
+      into(tableName).
+      values([ JSON.parse( idsRelation ) ]).
+      execute();    
   }
 
   async create(entity: Film):Promise<Film>  {
-    const saveEntity = await this._entityRepository.save(entity);
-        return saveEntity;
+    //const saveEntity = await this._entityRepository.save(entity);
+    //return saveEntity;
+    //const saveEntity = await entity;
+    this.send( entity )
+    return entity;    
   }
 
-  async findAll() : Promise<Film[]> {
+  async  send(entity: Film) 
+  {
+    const result = await this.kafkaProducer.send({
+        topic: 'films',
+        messages: [
+            {key: Math.random()+"", value: JSON.stringify(entity) }
+        ]
+    });
+  }
 
-   const entities: Film[] = await this._entityRepository.find()
+  async findAll() : Promise<Film[]> 
+  {
+     const entities: Film[] = await this._entityRepository.find()
         return entities
   }
 

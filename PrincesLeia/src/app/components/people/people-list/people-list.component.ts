@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { People } from 'src/app/models/people.models';
 import { PeopleService } from 'src/app/services/people.service';
+import { CreatePeopleResponse } from 'src/app/Viewmodels/CreatePeopleResponse';
 
 @Component({
   selector: 'app-People-list',
@@ -8,7 +9,7 @@ import { PeopleService } from 'src/app/services/people.service';
   styleUrls: ['./people-list.component.css']
 })
 export class PeopleListComponent implements OnInit {
-  entyties?: People[];
+  entyties?: CreatePeopleResponse[];
   entity?: People;
   currentIndex = -1;
   name = '';
@@ -39,8 +40,8 @@ export class PeopleListComponent implements OnInit {
     this.currentIndex = -1;
   }
 
-  setActiveEntity(entity: People, index: number): void {
-    this.entity = entity;
+  setActiveEntity(_entity: CreatePeopleResponse, index: number): void {
+    this.entity = _entity;//{id:_entity.id, name:_entity.name}
     this.currentIndex = index;
   }
 
@@ -57,7 +58,7 @@ export class PeopleListComponent implements OnInit {
   }
 
   searchName(): void {
-    this.entity = undefined;
+    /*this.entity = undefined;
     this.currentIndex = -1;
 
     this._Service.findByName(this.name)
@@ -68,7 +69,7 @@ export class PeopleListComponent implements OnInit {
         },
         error => {
           console.log(error);
-        });
+        });*/
   }
 
 }

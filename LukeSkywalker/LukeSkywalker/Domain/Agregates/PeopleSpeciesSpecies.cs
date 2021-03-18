@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace LukeSkywalker.Domain.Models
+namespace LukeSkywalker.Domain.Entities
 {
     [Table("people_species_species")]
     [Index(nameof(SpeciesId), Name = "IDX_9232984d4ee14342ad97f44382")]

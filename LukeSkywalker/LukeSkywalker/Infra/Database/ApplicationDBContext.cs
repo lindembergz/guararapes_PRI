@@ -4,10 +4,11 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using LukeSkywalker.Domain.Models;
+using LukeSkywalker.Domain.Entities;
 using LukeSkywalker.Service.DTO;
+using LukeSkywalker.Domain.Commands.Response;
 
-namespace LukeSkywalker.Database
+namespace LukeSkywalker.Infra.Database
 {
     public partial class ApplicationDBContext : DbContext
     {
@@ -17,6 +18,7 @@ namespace LukeSkywalker.Database
 
         public virtual DbSet<Films> Films { get; set; }
         public virtual DbSet<People> People { get; set; }
+        public virtual DbSet<CreatePeopleResponse> PeopleResponse { get; set; }
         public virtual DbSet<Planets> Planets { get; set; }
         public virtual DbSet<Species> Species { get; set; }
         public virtual DbSet<Starships> Starships { get; set; }
@@ -48,6 +50,11 @@ namespace LukeSkywalker.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CreatePeopleResponse>(entity => {
+                entity.ToTable("people");
+                entity.HasOne<People>().WithOne().HasForeignKey<CreatePeopleResponse>(e => e.id);
+            });
+
             modelBuilder.Entity<Films>(entity =>
             {
                 entity.Property(e => e.Created)

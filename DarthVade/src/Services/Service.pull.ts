@@ -1,9 +1,11 @@
-import { Injectable } from '@nestjs/common';
+
+import { Module , Injectable } from '@nestjs/common';
 import { getManager, getConnection  } from 'typeorm';
 
 @Injectable()
-export class ServicePull implements IServicePull
-{    
+export class ServicePull implements IServicePull 
+{       
+
    jsontoArray(json)
   {
       var result = [];
@@ -26,7 +28,11 @@ export class ServicePull implements IServicePull
       {   this.jsontoArray(result)[ _indexResults ].map
           ((head) =>
           {   const urlHead = head["url"];       
-              if (_relations.length == 0) { _service.create(head); }
+              if (_relations.length == 0) 
+              {
+                 _service.create(head);            
+  
+              }
               else
               {  _service.findOneIdByUrl( urlHead ).then( ( idHead ) => 
                   {   _relations.map( 
@@ -36,7 +42,7 @@ export class ServicePull implements IServicePull
                                         entityManager.query(`select Id from ${detail} where url = '${urlDetail}'`).
                                         then( (idDetail)=>
                                                 { _service.ExecRelationCommand(`${_entity}_${detail}_${detail}`,
-                                                `{"${_entity}Id":${idHead.toString()} ,"${detail}Id":${idDetail[0].Id.toString()}}` );
+                                                `{"${_entity}Id":${idHead.toString()} ,"${detail}Id":${idDetail[0].Id.toString()}}` );                                                  
                                                 }  
                                             );                                                                       
                                     });                                                                                

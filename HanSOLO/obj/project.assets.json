@@ -7226,11 +7226,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Lindemberg\\autenticao-jwt-com-asp-net-core-master\\HanSOLO.csproj",
+      "projectUniqueName": "C:\\Lindemberg\\PRI\\BackEnd\\HanSOLO\\HanSOLO.csproj",
       "projectName": "HanSOLO",
-      "projectPath": "C:\\Lindemberg\\autenticao-jwt-com-asp-net-core-master\\HanSOLO.csproj",
+      "projectPath": "C:\\Lindemberg\\PRI\\BackEnd\\HanSOLO\\HanSOLO.csproj",
       "packagesPath": "C:\\Users\\300068543\\.nuget\\packages\\",
-      "outputPath": "C:\\Lindemberg\\autenticao-jwt-com-asp-net-core-master\\obj\\",
+      "outputPath": "C:\\Lindemberg\\PRI\\BackEnd\\HanSOLO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\300068543\\AppData\\Roaming\\NuGet\\NuGet.Config",

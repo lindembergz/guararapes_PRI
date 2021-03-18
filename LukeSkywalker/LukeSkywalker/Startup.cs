@@ -1,6 +1,5 @@
-using LukeSkywalker.Database;
-using LukeSkywalker.Domain.Models;
-using LukeSkywalker.Domain.Services.Interfaces;
+using LukeSkywalker.Infra.Database;
+using LukeSkywalker.Domain.Interface.Service;
 using LukeSkywalker.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using System;
+using LukeSkywalker.Domain.Interface.Repository;
+using LukeSkywalker.Infra.Repository;
+using LukeSkywalker.Domain.Handles;
 
 namespace LukeSkywalker
 {
@@ -30,12 +32,11 @@ namespace LukeSkywalker
             services.AddControllers().AddNewtonsoftJson(Options =>
             Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            string conectionString = Configuration.GetConnectionString("DefaultConnection");
-
+    
             services.AddDbContextPool<ApplicationDBContext>(
                 dbContextOptions => dbContextOptions
                 //.UseMySql( "server=mysqlservidor.mysql.database.azure.com;port=3306;database=starwars;uid=servidor@mysqlservidor;password=982666@Lindemberg",
-                .UseMySql(conectionString,
+                .UseMySql(Configuration.GetConnectionString("DefaultConnection"),
                 new MySqlServerVersion(new Version(8, 0, 21)),
                         mySqlOptions => mySqlOptions
                             .CharSetBehavior(CharSetBehavior.NeverAppend))
@@ -52,12 +53,28 @@ namespace LukeSkywalker
 
             //AddSingleton
             //AddScoped
-            services.AddTransient<IServiceEntity<Films>, FilmService>();
-            services.AddTransient<IServiceEntity<People>, PeopleService>();
-            services.AddTransient<IServiceEntity<Species>, SpecieService>();
-            services.AddTransient<IServiceEntity<Planets>, PlanetService>();
-            services.AddTransient<IServiceEntity<Vehicles>, VehicleService>();
-            services.AddTransient<IServiceEntity<Starships>, StarShipService>();
+            
+            // Utilizar MediatR
+            services.AddTransient<IServiceFilm , ServiceFilm>();
+            services.AddTransient<IServicePeople, ServicePeople> ();
+            services.AddTransient<IServiceSpecie, ServiceSpecie>();
+            services.AddTransient<IServicePlanet , ServicePlanet>();
+            services.AddTransient<IServiceVehicle , ServiceVehicle>();
+            services.AddTransient<IServiceStarship, ServiceStarShip>();
+
+            services.AddTransient<IRepositoryFilm, RepositoryFilm>();
+            services.AddTransient<IRepositoryPeople, RepositoryPeople>();
+            services.AddTransient<IRepositorySpecie, RepositorySpecie>();
+            services.AddTransient<IRepositoryPlanet, RepositoryPlanet>();
+            services.AddTransient<IRepositoryVehicle, RepositoryVehicle>();
+            services.AddTransient<IRepositoryStarship, RepositoryStarShip>();
+
+            services.AddSingleton<IHostedService, MessageHandlerFilm>();
+            // services.AddSingleton<IHostedService, MessageHandlerPeople>();
+            //services.AddSingleton<IHostedService, MessageHandlerPlanet>();
+           // services.AddSingleton<IHostedService, MessageHandlerSpecie>();
+            //services.AddSingleton<IHostedService, MessageHandlerStarShip>();
+            //services.AddSingleton<IHostedService, MessageHandlerVehicle>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
