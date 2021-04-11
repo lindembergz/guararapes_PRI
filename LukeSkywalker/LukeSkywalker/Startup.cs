@@ -32,7 +32,8 @@ namespace LukeSkywalker
             services.AddControllers().AddNewtonsoftJson(Options =>
             Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-    
+            services.AddScoped<ApplicationDBContext>();
+
             services.AddDbContextPool<ApplicationDBContext>(
                 dbContextOptions => dbContextOptions
                 //.UseMySql( "server=mysqlservidor.mysql.database.azure.com;port=3306;database=starwars;uid=servidor@mysqlservidor;password=982666@Lindemberg",
@@ -53,7 +54,6 @@ namespace LukeSkywalker
 
             //AddSingleton
             //AddScoped
-            
             // Utilizar MediatR
             services.AddTransient<IServiceFilm , ServiceFilm>();
             services.AddTransient<IServicePeople, ServicePeople> ();
@@ -70,11 +70,14 @@ namespace LukeSkywalker
             services.AddTransient<IRepositoryStarship, RepositoryStarShip>();
 
             services.AddSingleton<IHostedService, MessageHandlerFilm>();
+
             // services.AddSingleton<IHostedService, MessageHandlerPeople>();
-            //services.AddSingleton<IHostedService, MessageHandlerPlanet>();
-           // services.AddSingleton<IHostedService, MessageHandlerSpecie>();
-            //services.AddSingleton<IHostedService, MessageHandlerStarShip>();
-            //services.AddSingleton<IHostedService, MessageHandlerVehicle>();
+            // services.AddSingleton<IHostedService, MessageHandlerPlanet>();
+            // services.AddSingleton<IHostedService, MessageHandlerSpecie>();
+            // services.AddSingleton<IHostedService, MessageHandlerStarShip>();
+            // services.AddSingleton<IHostedService, MessageHandlerVehicle>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

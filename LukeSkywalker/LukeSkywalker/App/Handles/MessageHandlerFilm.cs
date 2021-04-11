@@ -1,32 +1,39 @@
 ﻿using Confluent.Kafka;
+using LukeSkywalker.Domain.Entities;
 using LukeSkywalker.Domain.Interface.Repository;
+using LukeSkywalker.Domain.Interface.Service;
+using LukeSkywalker.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace LukeSkywalker.Domain.Handles
 {
-    public class MessageHandlerFilm : IHostedService
+    public class MessageHandlerFilm : BackgroundService, IHostedService
     {
         private readonly ILogger logger;
-        private readonly IRepositoryFilm repository;
-        
-        public MessageHandlerFilm(ILogger<MessageHandlerFilm> _logger, IRepositoryFilm _repository)
+
+        public IServiceScopeFactory _serviceScopeFactory;
+
+        private IServiceFilm service;
+
+        public MessageHandlerFilm(IServiceScopeFactory serviceScopeFactory)
         {
-            logger = logger;
-            repository = _repository;
+            _serviceScopeFactory = serviceScopeFactory;
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {               
-             var conf = new ConsumerConfig
+            var conf = new ConsumerConfig
             {
-                GroupId = "Films-consumer",
-                BootstrapServers = "host.docker.internal:9094",
+                GroupId = "Films-consumer", 
+                BootstrapServers = "host.docker.internal:9094", 
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
@@ -40,9 +47,20 @@ namespace LukeSkywalker.Domain.Handles
                     {
                         var message = c.Consume(cts.Token);
 
-                        //repository.Create(message.Value);
+                        Films F = new Films();
 
-                        logger.LogInformation($"Mensagens recebida de {message.TopicPartitionOffset} : {message.Value} ");
+                        var serializeOptions = new JsonSerializerOptions
+                        {
+                            PropertyNamingPolicy = JsonNamingPolicy.CamelCase                 
+                        };
+
+                        F = JsonSerializer.Deserialize<Films>( message.Value, serializeOptions);
+
+                        using (var scope = _serviceScopeFactory.CreateScope())
+                        {
+                            service = scope.ServiceProvider.GetService<IServiceFilm>();
+                            service.Create(F);
+                        }
                     }
                 }
                 catch (OperationCanceledException)

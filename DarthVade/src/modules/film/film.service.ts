@@ -21,7 +21,7 @@ export class FilmService implements IEntityService<Film>, OnModuleInit{
     }
 
     async onModuleInit() {
-      //this.kafkaProducer = await this.clientKafka.connect();
+      this.kafkaProducer = await this.clientKafka.connect();
     }
 
    async ExecRelationCommand(tableName: string , idsRelation: string  )
@@ -36,21 +36,22 @@ export class FilmService implements IEntityService<Film>, OnModuleInit{
   }
 
   async create(entity: Film):Promise<Film>  {
-    //const saveEntity = await this._entityRepository.save(entity);
-    //return saveEntity;
-    //const saveEntity = await entity;
-    this.send( entity )
-    return entity;    
+    ///const saveEntity = await this._entityRepository.
+    //save(entity);
+
+    const result = await this.kafkaProducer.send({
+      topic: 'films',
+      messages: [
+          {key: Math.random()+"", value: JSON.stringify(entity) }
+          ]
+      });
+   
+    return null;   
   }
 
-  async  send(entity: Film) 
+  async  send(entity: Film):Promise<void>  
   {
-    const result = await this.kafkaProducer.send({
-        topic: 'films',
-        messages: [
-            {key: Math.random()+"", value: JSON.stringify(entity) }
-        ]
-    });
+   
   }
 
   async findAll() : Promise<Film[]> 

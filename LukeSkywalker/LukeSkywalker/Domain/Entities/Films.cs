@@ -35,14 +35,16 @@ namespace LukeSkywalker.Domain.Entities
         public int Id { get; set; }
         [Required]
         [Column("title", TypeName = "varchar(200)")]
-        public string Title { get; set; }
+        public string Title { get; set; }  
         [Column("opening_crawl", TypeName = "varchar(1000)")]
+        [JsonPropertyName("opening_crawl")]
         public string OpeningCrawl { get; set; }
         [Column("director", TypeName = "varchar(200)")]
         public string Director { get; set; }
         [Column("producer", TypeName = "varchar(200)")]
         public string Producer { get; set; }
         [Column("release_date", TypeName = "varchar(255)")]
+        [JsonPropertyName("release_date")]
         public string ReleaseDate { get; set; }
         [Column("url", TypeName = "varchar(500)")]
         public string Url { get; set; }
@@ -51,7 +53,8 @@ namespace LukeSkywalker.Domain.Entities
         [Column("edited", TypeName = "varchar(30)")]
         public string Edited { get; set; }
         [Column("episode_id")]
-        public int EpisodeId { get; set; }
+        [JsonPropertyName("episode_id")]
+        public int episodeId { get; set; }
 
         [InverseProperty("Films")]
         [JsonIgnore]
