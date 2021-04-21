@@ -13,6 +13,7 @@ using System;
 using LukeSkywalker.Domain.Interface.Repository;
 using LukeSkywalker.Infra.Repository;
 using LukeSkywalker.Domain.Handles;
+using LukeSkywalker.App.MappinConfig;
 
 namespace LukeSkywalker
 {
@@ -31,6 +32,8 @@ namespace LukeSkywalker
         {
             services.AddControllers().AddNewtonsoftJson(Options =>
             Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            services.AddAutoMapperConfiguration();
 
             services.AddScoped<ApplicationDBContext>();
 
@@ -55,21 +58,23 @@ namespace LukeSkywalker
             //AddSingleton
             //AddScoped
             // Utilizar MediatR
-            services.AddTransient<IServiceFilm , ServiceFilm>();
-            services.AddTransient<IServicePeople, ServicePeople> ();
-            services.AddTransient<IServiceSpecie, ServiceSpecie>();
-            services.AddTransient<IServicePlanet , ServicePlanet>();
-            services.AddTransient<IServiceVehicle , ServiceVehicle>();
-            services.AddTransient<IServiceStarship, ServiceStarShip>();
+            services.AddScoped<IServiceFilm , ServiceFilm>();
+            services.AddScoped<IServicePeople, ServicePeople> ();
+            services.AddScoped<IServiceSpecie, ServiceSpecie>();
+            services.AddScoped<IServicePlanet , ServicePlanet>();
+            services.AddScoped<IServiceVehicle , ServiceVehicle>();
+            services.AddScoped<IServiceStarship, ServiceStarShip>();
 
-            services.AddTransient<IRepositoryFilm, RepositoryFilm>();
-            services.AddTransient<IRepositoryPeople, RepositoryPeople>();
-            services.AddTransient<IRepositorySpecie, RepositorySpecie>();
-            services.AddTransient<IRepositoryPlanet, RepositoryPlanet>();
-            services.AddTransient<IRepositoryVehicle, RepositoryVehicle>();
-            services.AddTransient<IRepositoryStarship, RepositoryStarShip>();
+            services.AddScoped<IRepositoryFilm, RepositoryFilm>();
+            services.AddScoped<IRepositoryPeople, RepositoryPeople>();
+            services.AddScoped<IRepositorySpecie, RepositorySpecie>();
+            services.AddScoped<IRepositoryPlanet, RepositoryPlanet>();
+            services.AddScoped<IRepositoryVehicle, RepositoryVehicle>();
+            services.AddScoped<IRepositoryStarship, RepositoryStarShip>();
 
-            services.AddSingleton<IHostedService, MessageHandlerFilm>();
+            
+
+           // services.AddSingleton<IHostedService, MessageHandlerFilm>();
 
             // services.AddSingleton<IHostedService, MessageHandlerPeople>();
             // services.AddSingleton<IHostedService, MessageHandlerPlanet>();

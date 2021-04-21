@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LukeSkywalker.Service.DTO;
 using LukeSkywalker.Domain.Commands.Response;
 
 namespace LukeSkywalker.Domain.Interface.Repository

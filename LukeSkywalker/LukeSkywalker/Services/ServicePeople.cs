@@ -1,22 +1,25 @@
 ﻿using LukeSkywalker.Domain.Entities;
 using LukeSkywalker.Domain.Interface.Service;
 using LukeSkywalker.Domain.Interface.Repository;
-using LukeSkywalker.Service.DTO;
 using LukeSkywalker.Services.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using LukeSkywalker.Domain.Commands.Requests;
 using LukeSkywalker.Domain.Commands.Response;
+using AutoMapper;
 
 namespace LukeSkywalker.Services
 {
     public class ServicePeople : IServicePeople//IServiceEntity<People>
     {
         private readonly IRepositoryPeople repository;
-        public ServicePeople(IRepositoryPeople _repository)
+        private readonly IMapper mapper;
+
+        public ServicePeople(IRepositoryPeople _repository, IMapper _mapper )
         {
             repository = _repository;
+            mapper = _mapper;
         }
         public void Create(People entity)
         {
@@ -29,6 +32,8 @@ namespace LukeSkywalker.Services
         }
         public void CreateRequest(RequestPeople entity)
         {
+            var mapperPeople = mapper.Map<People>(entity);
+             /*
             People people = new People
             {
                  Name      = entity.Name,
@@ -39,8 +44,8 @@ namespace LukeSkywalker.Services
                  Height    = entity.Height,
                  Mass      = entity.Mass,
                  SkinColor = entity.SkinColor
-            };
-            repository.Create(people);
+            };*/
+            repository.Create(mapperPeople);
         }
 
         public void Delete(int id)

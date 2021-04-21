@@ -5,7 +5,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using LukeSkywalker.Domain.Entities;
-using LukeSkywalker.Service.DTO;
 using LukeSkywalker.Domain.Commands.Response;
 
 namespace LukeSkywalker.Infra.Database
@@ -23,7 +22,6 @@ namespace LukeSkywalker.Infra.Database
         public virtual DbSet<Species> Species { get; set; }
         public virtual DbSet<Starships> Starships { get; set; }
         public virtual DbSet<Vehicles> Vehicles { get; set; }
-        public virtual DbSet<DTOPeople> DTOPeople { get; set; }
         public virtual DbSet<FilmsPeoplePeople> FilmsPeoplePeople { get; set; }
         public virtual DbSet<PeopleFilmsFilms> PeopleFilmsFilms { get; set; }
 

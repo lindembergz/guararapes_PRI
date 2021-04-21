@@ -1,7 +1,6 @@
 ﻿using LukeSkywalker.Domain.Entities;
 using LukeSkywalker.Domain.Interface.Service;
 using LukeSkywalker.Domain.Interface.Repository;
-using LukeSkywalker.Service.DTO;
 using LukeSkywalker.Services.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

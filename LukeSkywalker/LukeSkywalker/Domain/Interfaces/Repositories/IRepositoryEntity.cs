@@ -7,6 +7,8 @@ namespace LukeSkywalker.Domain.Interface.Repository
 {
     public interface IRepositoryEntity<T>
     {
+       // Task<ICollection<T>> GetEntities();
+
         ICollection<T> Get();
         T GetById(int id);
         void Create(T entity);

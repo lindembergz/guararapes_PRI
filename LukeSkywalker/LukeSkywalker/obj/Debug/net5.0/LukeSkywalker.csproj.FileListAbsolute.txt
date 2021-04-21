@@ -56,7 +56,6 @@ C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\ne
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
-C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\obj\Debug\net5.0\LukeSkywalker.csprojAssemblyReference.cache
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Confluent.Kafka.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Serilog.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\Serilog.Sinks.Console.dll
@@ -77,3 +76,5 @@ C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\ne
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\runtimes\win-x86\native\msvcp120.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\runtimes\win-x86\native\msvcr120.dll
 C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\runtimes\win-x86\native\zlib.dll
+C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\AutoMapper.dll
+C:\Lindemberg\PRI\BackEnd\LukeSkywalker\LukeSkywalker\LukeSkywalker\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
